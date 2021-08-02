@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_equipment_protocol">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="col-12">
+                            <h4>
+                                Electrical Testing According to DIN VDE 0701-0702 (DGUV Regulation 3)
+                            </h4>
+                        </div>
+                        <table class="table table-borderless table-sm mt16 ml16">
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong>Due Date: </strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong>Customer: </strong>
+                                </td>
+                                <td>
+                                    <h5><span t-field="o.customer_id"/></h5>
+                                    <t t-esc="o.customer_id.street"/>, <t t-esc="o.customer_id.street2"/> <t t-esc="o.customer_id.zip"/> <t t-esc="o.customer_id.city"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong>Contractor: </strong>
+                                </td>
+                                <td>
+                                    <h5><span t-field="o.contractor_id.partner_id"/></h5>
+                                    <t t-esc="o.contractor_id.partner_id.street"/>, <t t-esc="o.contractor_id.partner_id.street2"/> <t t-esc="o.contractor_id.partner_id.zip"/>, <t t-esc="o.contractor_id.partner_id.city"/>
+                                </td>
+                            </tr>
+                            </table>
+                            <table class="table table-borderless table-sm mt16 ml16">
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Testing Device:</span></strong>
+                                </td>
+                                <td style="width:265px;">
+                                    <span t-field="o.testing_device"/>
+                                </td>
+                                <td>
+                                    <strong><span>S/N:</span></strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.testing_device_sn"/>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                        <div class="col-12 mt16">
+                            <h5><strong>Information about the device:</strong></h5>
+                        </div>
+                        <table class="table table-borderless table-sm mt16 ml16">
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Manufacturer:</span></strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.manufacturer_id"/>
+                                </td>
+                                <td style="width:150px;">
+                                    <strong><span>Voltage:</span></strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.voltage_u_in_volts_v"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!--<td style="width:200px;">
+                                    <strong><span>Equipment System:</span></strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.equipment_service_id.name"/>
+                                </td> -->
+                                <td style="width:200px;">
+                                    <strong><span>Equipment Kategorie:</span></strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.equipment_id.category_id"/>
+                                </td>
+                                <td style="width:150px;">
+                                    <strong><span>Frequency:</span></strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.frequency_f_in_heart_hz"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Type:</span></strong>
+                                </td>
+                                <td t-if="o.equipment_service_id.exhaust_measuring_device == 'petrol'">
+                                    <span>Infralyt Smart</span>
+                                </td>
+                                <td t-if="o.equipment_service_id.exhaust_measuring_device == 'diesel'">
+                                    <span>Opacylit 1030</span>
+                                </td>
+                                <td style="width:150px;">
+                                    <strong><span>Protection Class:</span></strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.protection_class"/>
+                                </td>
+                                </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Serial Number:</span></strong>
+                                </td>
+                                <td colspan="3">
+                                    <span t-field="o.serial_no"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Visual Inspection:</span></strong>
+                                </td>
+                                <td>
+                                    <t t-if="o.visual_inspection == 'i.o'">
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_visual" checked="checked"/>
+                                            <label class="custom-control-label" for="checkbox_visual">i.O</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_visual_n"/>
+                                            <label class="custom-control-label" for="checkbox_visual_n">n.i.O</label>
+                                        </div>
+                                    </t>
+                                    <t t-if="o.visual_inspection == 'n.i.o'">
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_visual"/>
+                                            <label class="custom-control-label" for="checkbox_visual">i.O</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_visual_n" checked="checked"/>
+                                            <label class="custom-control-label" for="checkbox_visual_n">n.i.O</label>
+                                        </div>
+                                    </t>
+                                </td>
+                                <td style="width:150px;">
+                                    <strong><span>Remarks:</span></strong>
+                                </td>
+                                <td>
+                                    <p style="border-bottom:1px solid black; width:250px;">-</p>
+                                    <p style="border-bottom:1px solid black; width:250px;">-</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Equipment Testing:</span></strong>
+                                </td>
+                                <td>Tested according to DIN VDE 0701-0702 and Protected by</td>
+                                <td colspan="2">
+                                    <t t-if="o.tested_din_vde_0701_0702 == 'protective_line'">
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_equipment_test_l" checked="checked"/>
+                                            <label class="custom-control-label" for="checkbox_equipment_test_l">Protective Line</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_equipment_test_i"/>
+                                            <label class="custom-control-label" for="checkbox_equipment_test_i">Protective Insulation</label>
+                                        </div>
+                                    </t>
+                                    <t t-if="o.tested_din_vde_0701_0702 == 'protective_insulation'">
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_equipment_test_l"/>
+                                            <label class="custom-control-label" for="checkbox_equipment_test_l">Protective Line</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_equipment_test_i" checked="checked"/>
+                                            <label class="custom-control-label" for="checkbox_equipment_test_i">Protective Insulation</label>
+                                        </div>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Readings:</span></strong>
+                                </td>
+                                <td colspan="3">
+                                    R<sub>PE </sub><span style="border-bottom:1px solid black; width:150px;"><span t-field="o.operator_rpe"/><span t-field="o.rpe"/></span> Ω
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;"></td>
+                                <td colspan="3">
+                                    R<sub>ISO </sub><span style="border-bottom:1px solid black; width:250px;"><span t-field="o.operator_riso"/><span t-field="o.riso_m"/></span> MΩ
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;"></td>
+                                <td colspan="3">
+                                    I<sub>EA </sub><span style="border-bottom:1px solid black; width:250px;"><span t-field="o.operator_iea"/><span t-field="o.iea_ma"/></span> mA
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Functional Test:</span></strong>
+                                </td>
+                                <td>
+                                    <t t-if="o.functional_test == 'i.o'">
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_functional" checked="checked"/>
+                                            <label class="custom-control-label" for="checkbox_functional">i.O</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_functional_n"/>
+                                            <label class="custom-control-label" for="checkbox_functional_n">n.i.O</label>
+                                        </div>
+                                    </t>
+                                    <t t-if="o.functional_test == 'n.i.o'">
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_functional"/>
+                                            <label class="custom-control-label" for="checkbox_functional">i.O</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_functional_n" checked="checked"/>
+                                            <label class="custom-control-label" for="checkbox_functional_n">n.i.O</label>
+                                        </div>
+                                    </t>
+                                </td>
+                                <td style="width:150px;">
+                                    <strong><span>Remarks:</span></strong>
+                                </td>
+                                <td>
+                                    <p style="border-bottom:1px solid black; width:250px;">-</p>
+                                    <p style="border-bottom:1px solid black; width:250px;">-</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong><span>Evaluation:</span></strong>
+                                </td>
+                                <td colspan="3">
+                                    <t t-if="o.evaluation == 'correspond_device'">
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_evaluation_y" checked="checked"/>
+                                            <label class="custom-control-label" for="checkbox_evaluation_y">The device corresponds to the recognized rules of electrical engineering.</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_evaluation_n" />
+                                            <label class="custom-control-label" for="checkbox_evaluation_n">The device does not corresponds to the recognized rules of electrical engineering.</label>
+                                        </div>
+                                    </t>
+                                    <t t-if="o.evaluation == 'not_correspond_device'">
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_evaluation_y"/>
+                                            <label class="custom-control-label" for="checkbox_evaluation_y">The device corresponds to the recognized rules of electrical engineering.</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox_evaluation_n" checked="checked"/>
+                                            <label class="custom-control-label" for="checkbox_evaluation_n">The device does not corresponds to the recognized rules of electrical engineering.</label>
+                                        </div>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-borderless table-sm mt16">
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">
+                                        <t t-if="o.order_date">
+                                            <div class="mt32">
+                                                <span t-field='o.order_date'/>
+                                                <div class="ml32 mt16">
+                                                    <p style="border-top:1px solid black; width:250px;"/>
+                                                </div>
+                                                <strong><span class="text-center">Date</span></strong>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="mt48">
+                                                <div class="ml32">
+                                                    <p style="border-bottom:1px solid black; width:250px;">-</p>
+                                                </div>
+                                                <strong><span class="text-center">Date</span></strong>
+                                            </div>
+                                        </t>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="mt32">
+                                            <span t-esc="o.contractor_id.name"/>
+                                            <div class="ml32 mt16">
+                                                <p style="border-top:1px solid black; width:250px;"/>
+                                            </div>
+                                            <strong><span class="text-center">Tester</span></strong>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <img t-att-src="image_data_uri(o.signature)" style="max-height:4cm; max-width:8cm;" alt="sign"/>
+                                        <div>
+                                            <strong><span class="text-center">Signature</span></strong>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="wepelo_equipment_protocol" model="ir.actions.report">
+            <field name="name">Equipment Protocol</field>
+            <field name="model">equipment.protocol</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">wepelo_equipment.report_equipment_protocol</field>
+            <field name="report_file">wepelo_equipment.report_equipment_protocol</field>
+            <field name="print_report_name">(object._get_report_filename())</field>
+            <field name="binding_model_id" ref="model_equipment_protocol"/>
+            <field name="binding_type">report</field>
+        </record>
+
+</odoo>

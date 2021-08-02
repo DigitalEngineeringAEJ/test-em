@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_equipment_protocol_maintenance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                	<style>
+                		.checkbox-xl .custom-control-label::before,
+                            .checkbox-xl .custom-control-label::after {
+                              top: 0.8rem;
+                              width: 1.10rem;
+                              height: 1.10rem;
+                            }
+
+                            .checkbox-xl .custom-control-label {
+                              padding-top: 0.6%;
+                              padding-left: 2%;
+                              font-size: 14px;
+                            }
+                	</style>
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <t t-if="o.exhaust_measuring_device == 'diesel'">
+                            <div class="text-center">
+                                <h4>Proof of Maintenance For Opacilyt Devices</h4>
+                            </div>
+                        </t>
+                        <t t-if="o.exhaust_measuring_device == 'petrol'">
+                            <div class="text-center">
+                                <h3>Proof of Maintenance For Infralyt Devices</h3>
+                            </div>
+                        </t>
+
+                        <div class="row col-12 mt30">
+                        	<div class="col-2">
+                        		<span style="font-size: 14px;"><strong>Caution:</strong></span>
+                        	</div>
+                        	<div class="col-10">
+                        		<span style="font-size: 15px;">The validity of the calibration expires prematurely if the main stamp or safety stamp is damaged or removed</span>
+                        	</div>
+                        </div>
+                        <div class="row col-12 mt12">
+                        	<div class="col-2">
+                        		<span style="font-size: 14px;"><strong>Operator:</strong></span>
+                        	</div>
+                        	<t t-if="o.customer_id">
+	                        	<div class="col-10">
+		                        	<p style="width:400px;"><span style="border-bottom:1px solid black;font-size: 14px;" t-field="o.customer_id.name"/></p>
+	                        	</div>
+	                        </t>
+	                        <t t-else="">
+	                        	<div class="col-10">
+		                        	<p style="border-bottom:1px solid black; width:250px;">-</p>
+	                        	</div>
+	                        </t>
+                        </div>
+                        <div class="row col-12 mt4">
+                        	<div class="col-2">
+                        		<span style="font-size: 14px;"><strong>Device Type:</strong></span>
+                        	</div>
+                        	<div class="col-4">
+                        		<t t-if="o.exhaust_measuring_device == 'diesel'">
+	                        	    <p style="border-bottom:1px solid black; width:250px;"><span style="font-size: 14px;">Opacilyt 1030</span></p>
+	                        	</t>
+	                        	<t t-if="o.exhaust_measuring_device == 'petrol'">
+	                        	    <p style="border-bottom:1px solid black; width:250px;"><span style="font-size: 14px;">Infralyt Smart</span></p>
+	                        	</t>
+                        	</div>
+                        	<div class="col-2">
+                        		<span style="font-size: 14px;"><strong>Device No:</strong></span>
+                        	</div>
+                        	<div class="col-4">
+	                        	<p style="border-bottom:1px solid black; width:250px;"><span style="font-size: 14px;" t-field="o.serial_no"/></p>
+                        	</div>
+                        </div>
+                        <div class="col-12 mt16">
+                        	<span style="font-size: 16px;">The specifications of the measuring device manufacturer in the operating instructions for maintenance are the basis for the maintenance work</span>
+                        	<hr style="border-bottom:2px solid black;"/>
+                        </div>
+                        <t t-if="o.exhaust_measuring_device == 'diesel'">
+	                        <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.exhaust_hose_probe">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_exhaust_hose_probe" checked="checked"/>
+                                </t>
+                                <t t-if="not o.exhaust_hose_probe">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_exhaust_hose_probe"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_exhaust_hose_probe">Exhaust hose and exhaust probe removed and cleaned</label>
+	                        </div>
+
+	                        <div class="ml32 custom-control custom-checkbox checkbox-xl">
+                                <t t-if="o.measuring_optics">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_measuring_optics" checked="checked"/>
+                                </t>
+                                <t t-if="not o.measuring_optics">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_measuring_optics"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_measuring_optics">Measuring optics checked cleaned</label>
+                            </div>
+
+                            <div class="ml32 custom-control custom-checkbox checkbox-xl">
+                                <t t-if="o.measuring_cell">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_measuring_cell" checked="checked"/>
+                                </t>
+                                <t t-if="not o.measuring_cell">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_measuring_cell"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_measuring_cell">Measuring cell cleaned</label>
+                            </div>
+
+                            <div class="ml32 custom-control custom-checkbox checkbox-xl">
+                                <t t-if="o.cables_hose_connections">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_cables_hose_connections" checked="checked"/>
+                                </t>
+                                <t t-if="not o.cables_hose_connections">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_cables_hose_connections"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_cables_hose_connections">All cables and hose connections checked for tight fit</label>
+                            </div>
+
+                            <div class="ml32 custom-control custom-checkbox checkbox-xl">
+                                <t t-if="o.manual_calibration">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_manual_calibration" checked="checked"/>
+                                </t>
+                                <t t-if="not o.manual_calibration">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_manual_calibration"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_manual_calibration">Manual Calibration</label>
+                            </div>
+
+                            <div class="ml32 custom-control custom-checkbox checkbox-xl">
+                                <t t-if="o.functional_control">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_functional_control" checked="checked"/>
+                                </t>
+                                <t t-if="not o.functional_control">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_functional_control"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_functional_control">Function control of the device</label>
+                            </div>
+
+                            <div class="ml32 custom-control custom-checkbox checkbox-xl">
+                                <t t-if="o.test_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_test_filter" checked="checked"/>
+                                </t>
+                                <t t-if="not o.test_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_test_filter"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_test_filter">Testing the filters</label>
+                            </div>
+
+                            <div class="ml32 custom-control custom-checkbox checkbox-xl">
+                                <t t-if="o.test_calibration_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_test_calibration_filter" checked="checked"/>
+                                </t>
+                                <t t-if="not o.test_calibration_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_test_calibration_filter"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_test_calibration_filter">Testing of calibration filters (values see calibration certificate)</label>
+                            </div>
+                        </t>
+                        <t t-if="o.exhaust_measuring_device == 'petrol'">
+
+                          <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.exhaust_hose_probe">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_exhaust_hose_probe" checked="checked"/>
+                                </t>
+                                <t t-if="not o.exhaust_hose_probe">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_exhaust_hose_probe"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_exhaust_hose_probe">Exhaust hose and exhaust probe removed and cleaned</label>
+	                        </div>
+
+	                       <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.cables_hose_connections">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_cables_hose_connections" checked="checked"/>
+                                </t>
+                                <t t-if="not o.cables_hose_connections">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_cables_hose_connections"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_cables_hose_connections">	Alle Kabel und Schlauchverbindungen auf festen Sitz geprüft</label>
+	                        </div>
+
+
+	                        <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.pre_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_pre_filter" checked="checked"/>
+                                </t>
+                                <t t-if="not o.pre_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_pre_filter"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_pre_filter">Prefilter removed and cleaned</label>
+	                        </div>
+
+	                        <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.coarse_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_coarse_filter" checked="checked"/>
+                                </t>
+                                <t t-if="not o.coarse_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_coarse_filter"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_coarse_filter">Coarse filter removed and cleaned</label>
+	                        </div>
+
+	                        <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.fine_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_fine_filter" checked="checked"/>
+                                </t>
+                                <t t-if="not o.fine_filter">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_fine_filter"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_fine_filter">Fine filter replaced</label>
+	                        </div>
+
+	                        <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.leak_test_seal">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_leak_test_seal" checked="checked"/>
+                                </t>
+                                <t t-if="not o.leak_test_seal">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_leak_test_seal"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_leak_test_seal">Leak test seal checked for damage</label>
+	                        </div>
+
+	                        <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.leak_test_performed">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_leak_test_performed" checked="checked"/>
+                                </t>
+                                <t t-if="not o.leak_test_performed">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_leak_test_performed"/>
+                                </t>
+                                <label class="custom-control-label" for="checkbox_leak_test_performed">Leak test performed</label>
+	                        </div>
+
+                            <div class="ml32 custom-control custom-checkbox checkbox-xl col-12">
+	                        	<t t-if="o.test_o2_sensor">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_test_o2_sensor" checked="checked"/>
+
+                                    <label class="custom-control-label" for="checkbox_test_o2_sensor">O2 sensor tested </label>
+                                </t>
+                                <t t-if="not o.test_o2_sensor">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_test_o2_sensor"/>
+                                	<label class="custom-control-label" for="checkbox_test_o2_sensor">O2 sensor tested</label>
+                                </t>
+                            </div>
+
+	                        <div class="ml32 custom-control custom-checkbox checkbox-xl">
+	                        	<t t-if="o.test_gas">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_test_gas" checked="checked"/>
+
+                                    <label class="custom-control-label" for="checkbox_test_gas">Test gas </label>
+                                </t>
+                                <t t-if="not o.test_gas">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox_test_gas"/>
+                                    <label class="custom-control-label" for="checkbox_test_gas">Test gas</label>
+                                </t>
+	                        </div>
+                        <t t-if="o.test_o2_sensor or o.test_gas">
+                             <div class="ml32 custom-control custom-checkbox checkbox-xl col-12" style="margin-top:10px;">
+                                 <span class="ml50">Type:</span><span class="ml4"><span t-if="not o.sensor_type">___________________________________</span><span style="border-bottom:1px solid black;"><span t-field="o.sensor_type"/></span></span><span style="margin-left:2%;">Serial No:</span><span class="ml4"><span t-if="not o.sensor_serial">_____________ </span><span style="border-bottom:1px solid black;"><span t-field="o.sensor_serial"/></span>
+                                <span style="margin-left:2%;">Certificate No:</span><span class="ml4"/><span t-if="not o.gas_certificate_no">_______</span><span style="border-bottom:1px solid black;"><span t-field="o.gas_certificate_no"/></span><span style="margin-left:2%;">Bottle No:</span><span class="ml4"/><span t-if="not o.gas_bottle_no">_______</span><span style="border-bottom:1px solid black;"><span t-field="o.gas_bottle_no"/></span></span>
+                             </div>
+                            </t>
+	                        <div>
+	                        	<table class="table table-bordered table-sm mt16 ml64" style="width:85%;">
+	                        		<tbody>
+	                        			<tr>
+	                        				<td style="width:150px;"/>
+	                        				<td class="text-center"><strong>Test Gas Concentration</strong></td>
+	                        				<td class="text-center"><strong>Value Displayed After Adjustment</strong></td>
+	                        			</tr>
+	                        			<tr>
+	                        				<td><strong>CO (vol %)</strong></td>
+	                        				<td class="text-center"><span t-field="o.test_gas_concentration_co"/></td>
+	                        				<td class="text-center"><span t-field="o.value_after_adjustment_co"/></td>
+	                        			</tr>
+	                        			<tr>
+	                        				<td><strong>CO<sub>2</sub> (vol %)</strong></td>
+	                        				<td class="text-center"><span t-field="o.test_gas_concentration_co2"/></td>
+	                        				<td class="text-center"><span t-field="o.value_after_adjustment_co2"/></td>
+	                        			</tr>
+	                        			<tr>
+	                        				<td><strong>C<sub>3</sub> H<sub>8</sub> (ppm)</strong></td>
+	                        				<td class="text-center"><span t-field="o.test_gas_concentration_c3"/></td>
+	                        				<td class="text-center"><span t-field="o.value_after_adjustment_c3"/></td>
+	                        			</tr>
+	                        		</tbody>
+	                        	</table>
+	                        </div>
+
+	                    </t>
+                        <t t-if="o.exhaust_measuring_device == 'diesel'">
+	                        <div class="mt16 col-12">
+	                        	<span style="font-size: 14px;"><strong>Remarks:</strong></span>
+	                        	<p style="border-bottom:1px solid black; width:750px;">-</p>
+	                        </div>
+	                    </t>
+	                    <t t-if="o.exhaust_measuring_device == 'diesel'">
+		                    <div class="col-12">
+		                    	<hr style="border-bottom:2px solid black;" class="mt28"/>
+		                    </div>
+		                </t>
+		                <t t-if="o.exhaust_measuring_device == 'petrol'">
+		                    <div class="col-12">
+		                    	<hr style="border-bottom:2px solid black;"/>
+		                    </div>
+		                </t>
+                        <div class="row col-12">
+                        	<div class="col-4">
+                        		<span style="font-size: 14px;"><strong>Maintenance by Company:</strong></span>
+                        	</div>
+                        	<div class="col-8">
+                        		<p style="border-bottom:1px solid black; width:500px;"><span style="font-size: 14px;" t-field="o.contractor_id.partner_id.company_id"/></p>
+                                <p style="border-bottom:1px solid black; width:500px;"><span style="font-size: 14px;">
+                                    <t t-esc="o.contractor_id.partner_id.street"/>
+                                    <t t-if="o.contractor_id.partner_id.street2">, <t t-esc="o.contractor_id.partner_id.street2"/></t>
+                                    <t t-if="o.contractor_id.partner_id.zip">, <t t-esc="o.contractor_id.partner_id.zip"/></t>
+                                   <t t-if="o.contractor_id.partner_id.city"> , <t t-esc="o.contractor_id.partner_id.city"/></t></span></p>
+                        	</div>
+                        </div>
+                        <div class="row col-12 mt4">
+                        	<div class="col-4">
+                        		<span class="font-size: 14px;"><strong>Date of Completed Maintenance:</strong></span>
+                        	</div>
+                        	<div class="col-8">
+                        		<t t-if="o.date">
+                        		    <p style="border-bottom:1px solid black; width:250px;"><span t-field="o.date"/></p>
+                        		</t>
+                        		<t t-else="">
+                        			<p style="border-bottom:1px solid black; width:250px;">-</p>
+                        		</t>
+                        	</div>
+                        </div>
+                        <div class="row col-12 mt4">
+                        	<div class="col-4">
+                        		<span class="font-size: 14px;"><strong>Next Maintenance on (Maintenance Period 1/2 Year):</strong></span>
+                        	</div>
+                        	<div class="col-8 mt12">
+                        		<t t-if="o.date">
+                        		    <p style="border-bottom:1px solid black; width:250px;"><span t-esc="(o.date + relativedelta(months=6)).strftime('%d.%m.%Y')"/></p>
+                        		</t>
+                        		<t t-else="">
+                        		    <p style="border-bottom:1px solid black; width:250px;">-</p>
+                        		</t>
+                        	</div>
+                        </div>
+                        <div class="row col-12">
+                        	<div class="col-4 mt40">
+                        		<span class="font-size: 14px;"><strong>Maintenance-Performing:</strong></span>
+                        	</div>
+                        	<div class="col-4 mt40">
+                        		<span t-esc="o.contractor_id.name"/>
+                                <div>
+                                    <p style="border-top:1px solid black; width:250px;"/>
+                                	<strong><span class="text-center">Name</span></strong>
+                                </div>
+                        	</div>
+                        	<div class="col-4">
+                        		<t t-if="o.signature">
+                        		    <img t-att-src="image_data_uri(o.signature)" style="max-height:2cm; max-width:6cm;" alt="sign"/>
+	                        		<div class="ml16">
+	                                    <strong><span class="text-center">Signature</span></strong>
+	                                </div>
+                        		</t>
+                        		<t t-else="">
+	                        		<div class="ml16">
+                                    	<p style="border-bottom:1px solid black; width:250px; ">-</p>
+	                                    <strong><span class="text-center">Signature</span></strong>
+	                                </div>
+                        		</t>
+                        	</div>
+                        </div>
+                        <div class="col-12 mt4">
+                        	<span style="font-size: 16px;">The proof of maintenance corresponds to the requirements of 6 paragraph 2 of the calibration regulations. It is to be kept for 10 years (from the year of issue)</span>
+                        </div>
+ 
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    
+    </template>
+
+    <record id="wepelo_equipment_protocol_maintenance" model="ir.actions.report">
+	<field name="model">equipment.protocol</field>
+	<field name="name">Equipment Protocol Maintenance</field>
+	<field name="report_type">qweb-pdf</field>
+	<field name="report_name">wepelo_equipment.report_equipment_protocol_maintenance</field>
+	<field name="report_file">wepelo_equipment.report_equipment_protocol_maintenance</field>
+	<!--<field name="groups">base.group_system,base.group_user</field>-->
+	<field name="print_report_name">(object._get_report_filename())</field>
+	<field name="binding_type">report</field>
+	<field name="binding_model_id" ref="model_equipment_protocol"/>
+	<!--<field name="menu">False</field>-->
+</record>
+</odoo>

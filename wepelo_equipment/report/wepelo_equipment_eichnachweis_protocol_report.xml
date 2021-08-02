@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_equipment_eichnachweis_protocol">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="col-12">
+                            <h4>
+                                Eichnachweis
+                            </h4>
+                        </div>
+                        <table class="table table-borderless table-sm mt16 ml16">
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong>Customer: </strong>
+                                </td>
+                                <td>
+                                    <h5><span t-field="o.customer_id"/></h5>
+                                    <t t-esc="o.customer_id.street"/>, <t t-esc="o.customer_id.street2"/> <t t-esc="o.customer_id.zip"/>, <t t-esc="o.customer_id.city"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong>Contractor: </strong>
+                                </td>
+                                <td>
+                                    <h5><span t-field="o.contractor_id.partner_id"/></h5>
+                                    <t t-esc="o.contractor_id.partner_id.street"/>, <t t-esc="o.contractor_id.partner_id.street2"/> <t t-esc="o.contractor_id.partner_id.zip"/>, <t t-esc="o.contractor_id.partner_id.city"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong>Serial No: </strong>
+                                </td>
+                                <td>
+                                    <h5><span t-field="o.serial_no"/></h5>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td style="width:200px;">
+                                    <strong>Type: </strong>
+                                </td>
+                                <td>
+                                    <h5><span t-field="o.equipment_id.category_id"/></h5>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td style="width:200px;">
+                                    <strong>Scheduled Date: </strong>
+                                </td>
+                                <td>
+                                    <h5><span t-field="o.mail_activity_id.schedule_date" t-options='{"format": "dd.MM.yyyy"}'/></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong>Eichamt: </strong>
+                                </td>
+                                <td>
+                                    <h5><span t-field="o.eichamt"/></h5>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="wepelo_equipment_eichnachweis_protocol" model="ir.actions.report">
+            <field name="name">Eichnachweis</field>
+            <field name="model">equipment.protocol</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">wepelo_equipment.report_equipment_eichnachweis_protocol</field>
+            <field name="report_file">wepelo_equipment.report_equipment_eichnachweis_protocol</field>
+            <field name="print_report_name">(object._get_report_filename())</field>
+            <field name="binding_model_id" ref="model_equipment_protocol"/>
+            <field name="binding_type">report</field>
+        </record>
+
+</odoo>

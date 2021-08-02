@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--Service strain Data-->
+       <record id="activity_gefährdungsbeurteilungen" model="equipment.test">
+            <field name="display_name">Gefährdungsbeurteilungen</field>
+            <field name="equipment_test_type">calibration_ei</field>
+            <field name="cycle_duration">360</field>
+        </record>
+
+        <record id="activity_begehung" model="equipment.test">
+            <field name="display_name">Begehung</field>
+            <field name="equipment_test_type">routine_test</field>
+            <field name="cycle_duration">720</field>
+        </record>
+
+        <record id="activity_schulung_unterweisung" model="equipment.test">
+            <field name="display_name">Schulung/Unterweisung</field>
+            <field name="equipment_test_type">uvv</field>
+            <field name="cycle_duration">360</field>
+        </record>
+
+        <!--<record id="equipment_test_data_el_test" model="equipment.test">
+            <field name="display_name">DGUV V3</field>
+            <field name="equipment_test_type">el_test</field>
+            <field name="cycle_duration">360</field>
+        </record>
+
+        <record id="equipment_test_data_calibration" model="equipment.test">
+            <field name="display_name">Kalibrierung</field>
+            <field name="equipment_test_type">calibration</field>
+            <field name="cycle_duration">720</field>
+        </record>
+        <record id="equipment_test_data_maintenance" model="equipment.test">
+            <field name="display_name">Wartung</field>
+            <field name="equipment_test_type">maintenance</field>
+            <field name="cycle_duration">360</field>
+        </record>
+        <record id="equipment_test_data_repairs" model="equipment.test">
+            <field name="display_name">Reparaturen</field>
+            <field name="equipment_test_type">repairs</field>
+            <field name="cycle_duration">0</field>
+        </record>-->
+
+        <!-- Mail Activity Data-->
+      <!--  <record id="mail_activity_data_calibration" model="mail.activity.type">
+            <field name="name">Schulung/Unterweisung</field>
+            <field name="delay_count">720</field>
+            <field name="delay_unit">days</field>
+            <field name="equipment_test_type_id" ref="equipment_test_data_calibration"/>
+            <field name="sequence">8</field>
+            <field name="category">upload_file</field>
+        </record>-->
+         <record id="mail_activity_data_calibration_ei" model="mail.activity.type">
+            <field name="name">Gefährdungsbeurteilungen</field>
+            <field name="delay_count">360</field>
+            <field name="delay_unit">days</field>
+            <field name="sequence">9</field>
+            <field name="equipment_test_type_id" ref="activity_gefährdungsbeurteilungen"/>
+        </record>
+        <record id="mail_activity_data_routine_test" model="mail.activity.type">
+            <field name="name">Begehung</field>
+            <field name="delay_count">720</field>
+            <field name="delay_unit">days</field>
+            <field name="sequence">10</field>
+            <field name="equipment_test_type_id" ref="activity_begehung"/>
+        </record>
+        <record id="mail_activity_data_uvv" model="mail.activity.type">
+            <field name="name">Schulung/Unterweisung</field>
+            <field name="delay_count">360</field>
+            <field name="delay_unit">days</field>
+            <field name="sequence">11</field>
+            <field name="equipment_test_type_id" ref="activity_schulung_unterweisung"/>
+            <field name="category">upload_file</field>
+        </record>
+        
+        <record id="mail_act_maintenance_request" model="mail.activity.type">
+        <field name="name">Maintenance Request</field>
+        <field name="icon">fa-wrench</field>
+        <field name="res_model_id" ref="maintenance.model_maintenance_request"/>
+        <!--active="false"/>-->
+    </record>
+       <!-- <record id="mail_activity_data_el_test" model="mail.activity.type">
+            <field name="name">DGUV V3</field>
+            <field name="delay_count">360</field>
+            <field name="delay_unit">days</field>
+            <field name="equipment_test_type_id" ref="equipment_test_data_el_test"/>
+            <field name="sequence">12</field>
+            <field name="category">upload_file</field>
+        </record>
+        <record id="mail_activity_data_maintenance" model="mail.activity.type">
+            <field name="name">Wartung</field>
+            <field name="delay_count">360</field>
+            <field name="delay_unit">days</field>
+            <field name="sequence">13</field>
+            <field name="category">upload_file</field>
+            <field name="equipment_test_type_id" ref="equipment_test_data_maintenance"/>
+        </record>
+        <record id="mail_activity_data_repairs" model="mail.activity.type">
+            <field name="name">Reparaturen</field>
+            <field name="sequence">14</field>
+            <field name="category">upload_file</field>
+            <field name="equipment_test_type_id" ref="equipment_test_data_repairs"/>
+        </record>-->
+         <!-- Anlage Benning ST 710 als Standard Prügerät -->
+        <record id="equipment_types_data_benning" model="equipment.types">
+            <field name="name">Benning ST 710</field>
+            <field name="types_sn">24L-0737</field>
+        </record>
+    </data>
+
+    <record id="res_partner_ref_seq" forcecreate="1" model="ir.sequence">
+        <field name="name">Partner Ref Sequence</field>
+        <field name="code">res.partner.ref.seq</field>
+        <field eval="1" name="number_increment" />
+        <field name="padding">6</field>
+    </record>
+
+    <record id="equipment_hebebuhne" model="maintenance.equipment.category">
+        <field name="name">Arbeitsplatz</field>
+    </record>
+
+    <record id="equipment_tore" model="maintenance.equipment.category">
+        <field name="name">Arbeitsmittel</field>
+    </record>
+
+    <record id="equipment_bremsprufstand" model="maintenance.equipment.category">
+        <field name="name">Tätigkeit</field>
+    </record>
+
+    <record id="equipment_personal" model="maintenance.equipment.category">
+        <field name="name">Personal</field>
+    </record>
+</odoo>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!--Equipment Protocol Views-->
+    <record id="wepelo_equipment_protocol_view_tree" model="ir.ui.view">
+        <field name="name">wepelo.equipment.protocol.tree</field>
+        <field name="model">equipment.protocol</field>
+        <field name="arch" type="xml">
+            <tree string="Types">
+                <field name="customer_id"/>
+                <field name="date"/>
+                <field name="equipment_test_type"/>
+                <field name="serial_no"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Anpassen der Suchfunktionen + Feld ref (Kundennummer) in equipment_protocol.py angepassen-> Zeile 40   -->
+    <record id="wepelo_equipment_protocol_view_search" model="ir.ui.view">
+        <field name="name">protocol.search</field>
+        <field name="model">equipment.protocol</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+               <field string="Equipment" name="name" filter_domain="[
+                    '|',
+                    ('name', 'ilike', self), ('serial_no', 'ilike', self)]"/> 
+                <field string="Customer" name="customer_id" filter_domain="[
+                    ('customer_id', 'ilike', self)]"/>
+                <field string="Kundennummer" name="ref" filter_domain="[
+                    ('customer_id.ref', 'ilike', self)]"/>                                                                 <field string="equipment_id" name="equipment_id" filter_domain="[
+('equipment_id', 'ilike', self)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Anpassen der View--> 
+        <record id="protocol_action_from_customer_form2" model="ir.actions.act_window">
+            <field name="name">Protocol</field>
+            <field name="res_model">equipment.protocol</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="wepelo_equipment.wepelo_equipment_protocol_view_search"/>
+            <field name="context">{
+                'search_default_customer_id': [active_id],
+                'default_customer_id': active_id,
+            }</field>
+        </record>
+    <record id="res_partner_view_protocol_buttons2" model="ir.ui.view">
+        <field name="name">res.partner.view.protocol.buttons2</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <div class="oe_button_box" name="button_box">
+                <button name="%(protocol_action_from_customer_form2)d"
+                    class="oe_stat_button"
+                    icon="fa-cubes"
+                    type="action">
+                    <field string="Protocol" name="protocol_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+    
+    <!-- Anpassen der View neu--> 
+    <record id="protocol_action_from_euipment_form" model="ir.actions.act_window">
+            <field name="name">Protocol_Equipment</field>
+            <field name="res_model">equipment.protocol</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="wepelo_equipment.wepelo_equipment_protocol_view_search"/>
+            <field name="context">{
+            'search_default_equipment_id': [active_id],
+            'default_equipment_id': active_id
+            }</field>
+    </record>
+
+    <record id="base.action_attachment" model="ir.actions.act_window">
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    
+    <record id="maintenance_equipment_view_protocol_buttons" model="ir.ui.view">
+        <field name="name">res.partner.view.protocol.buttons</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form" />
+        <field name="arch" type="xml">
+            <div class="oe_button_box" name="button_box">
+                <button name="%(protocol_action_from_euipment_form)d"
+                    class="oe_stat_button"
+                    icon="fa-cubes"
+                    type="action">
+                    <field string="Protocol" name="protocol_count" widget="statinfo"/>
+                </button>
+            </div>
+             <div class="oe_button_box" name="button_box">
+                 <button
+                    class="oe_stat_button"
+                    name="attachment_tree_view"
+                    type="object"
+                    icon="fa-files-o"
+                    width="155px"
+                >
+                        <field
+                        name="attachment_count"
+                        class="o_stat_value"
+                        string="Attachments"
+                        widget="statinfo"
+                    />
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="wepelo_equipment_protocol_view_form" model="ir.ui.view">
+        <field name="name">wepelo.equipment.protocol.form</field>
+        <field name="model">equipment.protocol</field>
+        <field name="arch" type="xml">
+            <form string="Equipment Protocol">
+                 <header>
+                     <button name="%(wepelo_equipment_protocol)d"
+                            string="Equipment Protocol"
+                            type="action"
+                            icon="fa-print"
+                            attrs="{'invisible': ['|', ('mail_activity_id','=',False), ('equipment_test_type','!=','el_test')]}"/>
+                     <button name="%(wepelo_equipment_protocol_rep_prot)d"
+                            string="Equipment Protocol Repair Prot"
+                            type="action"
+                            icon="fa-print" attrs="{'invisible': [('maintenance_request_id','=',False)]}"/>
+
+                     <button name="%(wepelo_equipment_protocol_maintenance)d"
+                            string="Equipment Protocol Maintenance"
+                            type="action"
+                            icon="fa-print"
+                            attrs="{'invisible': ['|', ('mail_activity_id','=',False), ('equipment_test_type','!=','maintenance')]}"/>
+                     <button name="%(wepelo_equipment_eichnachweis_protocol)d"
+                            string="Eichnachweis"
+                            type="action"
+                            icon="fa-print"
+                            attrs="{'invisible': ['|', ('mail_activity_id','=',False), ('equipment_test_type','!=','calibration_ei')]}"/>
+                     <button name="%(wepelo_equipment_hebebuhne_protocol)d"
+                            string="Betriebssicherheitsprüfung Protocol"
+                            type="action"
+                            icon="fa-print"
+                            attrs="{'invisible': ['|','|', ('mail_activity_id','=',False), ('equipment_test_type','!=','uvv'), ('category_id', '!=', %(equipment_hebebuhne)d)]}"/>
+                      <button name="%(wepelo_equipment_tore_protocol)d"
+                            string="Betriebssicherheitsprüfung Protocol"
+                            type="action"
+                            icon="fa-print"
+                            attrs="{'invisible': ['|','|', ('mail_activity_id','=',False), ('equipment_test_type','!=','uvv'), ('category_id', '!=', %(equipment_tore)d)]}"/>
+                     <button name="%(wepelo_equipment_bremsprufstand_protocol)d"
+                            string="Stückprüfung Protocol"
+                            type="action"
+                            icon="fa-print"
+                            attrs="{'invisible': ['|','|', ('mail_activity_id','=',False), ('equipment_test_type','!=','routine_test'), ('category_id', '!=', %(equipment_bremsprufstand)d)]}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" string="Name" placeholder="Protocol Name"/></h1>
+                    </div>
+                        <group string="Reparatur" attrs="{'invisible':[('maintenance_request_id', '=', False)]}">
+                            <field name="x_garantie"/>
+                            <field name="x_reparatur"/>
+                            <field name="x_durchPI"/>
+                            <field name="x_angegebener_fehler"/>
+                        </group>
+                        <group>
+                            <field name="customer_id"/>
+                            <!---Zeile 56 - 65 // Anpassung Feld equipment id (equipment_id wurde in mail.activity.py in Zeile 173 geändert)+ equipment test type  --> 
+                            <field name="equipment_id"/>
+                            <field name="equipment_test_type"/>
+                            <field name="date"/>
+                            <field name="manufacturer_id"/>
+                            <field name="equipment_service_id"/>
+                            <field name="equipment_test_type_id" invisible="1"/>
+                            <field name="equipment_test_type" invisible="1"/>
+                            <field name="mail_activity_id" invisible="1"/>
+                            <field name="maintenance_request_id" invisible="1"/>
+                            <field name="category_id" invisible="1"/>
+                            </group>
+                        <group>
+                            <field name="contractor_id"/>
+                            <field name="order_date"/>
+                            <field name="serial_no"/>
+                            <field name="signature" widget="signature"/>
+                        </group>               
+                    <group string="EL. Test" attrs="{'invisible': [('equipment_test_type', '!=', 'el_test')]}">
+                        <group>
+                            <field name="voltage_u_in_volts_v"/>
+                            <field name="protection_class"/>
+                            <field name="type"/>
+                            <field name="functional_test"/>
+                            <div>
+                                <strong>RPE [Ω] <field name="operator_rpe" style="width: 20px;" nolabel="1"/></strong>
+                            </div>
+                            <field name="rpe" nolabel="1"/>
+                            <div>
+                                <strong>RISO [MΩ] <field name="operator_riso" style="width: 20px;" nolabel="1"/></strong>
+                            </div>
+                            <field name="riso_m" nolabel="1"/>
+                            <div>
+                                <strong>IEA [mA] <field name="operator_iea" style="width: 20px;" nolabel="1"/></strong>
+                            </div>
+                            <field name="iea_ma" nolabel="1"/>
+                        </group>
+                        <group>
+                            <field name="frequency_f_in_heart_hz"/>
+                            <field name="visual_inspection"/>
+                            <field name="testing_device"/>
+                            <field name="evaluation"/>
+                            <field name="tested_din_vde_0701_0702"/>
+                        </group>
+                    </group>
+                    <group string="Maintenance" attrs="{'invisible': [('equipment_test_type', '!=', 'maintenance')]}">
+                        <group>
+                            <field name="exhaust_hose_probe" class="ml16"/>
+                            <field name="cables_hose_connections" class="ml16"/>
+                            <field name="exhaust_measuring_device" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Exhaust Measuring Device Diesel" attrs="{'invisible': ['|', ('equipment_test_type', '!=', 'maintenance'), ('exhaust_measuring_device', '!=', 'diesel')]}">
+                        <group>
+                            <field name="measuring_optics"/>
+                            <field name="measuring_cell"/>
+                            <field name="manual_calibration"/>
+                        </group>
+                        <group>
+                            <field name="functional_control"/>
+                            <field name="test_filter"/>
+                            <field name="test_calibration_filter"/>
+                        </group>
+                    </group>
+                    <group string="Exhaust Measuring Device Petrol" attrs="{'invisible': ['|', ('equipment_test_type', '!=', 'maintenance'), ('exhaust_measuring_device', '!=', 'petrol')]}">
+                        <group>
+                            <field name="pre_filter"/>
+                            <field name="coarse_filter"/>
+                            <field name="test_o2_sensor"/>
+                        </group>
+                        <group>
+                            <field name="leak_test_performed"/>
+                            <field name="fine_filter"/>
+                            <field name="leak_test_seal"/>
+                            <field name="test_gas"/>
+                        </group>
+                    </group>
+                    <table class="table table-borderless table-sm" attrs="{'invisible': ['|', ('equipment_test_type', '!=', 'maintenance'), ('exhaust_measuring_device', '!=', 'petrol')]}">
+                        <tbody>
+                            <tr>
+                                <span attrs="{'invisible': [('test_o2_sensor', '=', False)]}">
+                                    <td style="width:50px;"><strong>Type: </strong></td>
+                                    <td style="width:200px;"><field name="sensor_type"/></td>
+                                    <td style="width:80px;"><strong>Serial No: </strong></td>
+                                    <td style="width:200px;"><field name="sensor_serial"/></td>
+                                </span>
+                                <span attrs="{'invisible': [('test_o2_sensor', '=', True)]}">
+                                    <td style="width:50px;"/>
+                                    <td style="width:110px;"/>
+                                    <td style="width:180px;"/>
+                                    <td style="width:190px;"/>
+                                </span>
+                                <span attrs="{'invisible': [('test_gas', '=', False)]}">
+                                    <td style="width:105px;"><strong>Certificate No: </strong></td>
+                                    <td style="width:175px;"><field name="gas_certificate_no"/></td>
+                                    <td style="width:85px;"><strong>Bottle No: </strong></td>
+                                    <td style="width:179px;"><field name="gas_bottle_no"/></td>
+                                </span>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <group attrs="{'invisible': ['|', ('equipment_test_type', '!=', 'maintenance'), ('exhaust_measuring_device', '!=', 'petrol')]}">
+                        <group>
+                            <field name="test_gas_concentration_co"/>
+                            <field name="test_gas_concentration_co2"/>
+                            <field name="test_gas_concentration_c3"/>
+                        </group>
+                        <group>
+                            <field name="value_after_adjustment_co"/>
+                            <field name="value_after_adjustment_co2"/>
+                            <field name="value_after_adjustment_c3"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+	<!--Master Data Equipment Protocol Action -->
+    <record id="wepelo_equipment_protocol_action" model="ir.actions.act_window">
+        <field name="name">Equipment Protocol</field>
+        <field name="res_model">equipment.protocol</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_equipment_protocol_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new Equipment Protocol
+            </p>
+        </field>
+    </record>
+
+	<menuitem
+        id="menu_wepelo_equipment_protocol"
+        name="Protocol"
+        parent="maintenance.menu_maintenance_title"
+        action="wepelo_equipment_protocol_action"
+        groups="base.group_system,base.group_user"
+        sequence="6"/>
+</odoo>

@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_equipment_protocol_bremsprufstand">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <style>
+                        .checkbox-xl .custom-control-label::before,
+                        .checkbox-xl .custom-control-label::after {
+                        width: 1rem;
+                        height: 1rem;
+                        }
+                    </style>
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h4>
+                            <strong>Prüfbericht</strong>
+                            <br></br>
+                            <span style="font-size:10px;">Stückprüfung eines Bremsprüfstands
+                                (nach StVZO Deutschland)
+                            </span>
+                        </h4>
+                        <div class="row col-12" style="margin-left:5px%;">
+                            <div class="col-8" style="border:1px solid black;">
+                                <strong style="font-size:10px">Anschrift der Firma, die den Bremsprüfstand betreibt:
+                                </strong>
+                                <br></br>
+                                <span t-field="o.customer_id.name" style="font-size:10px"/><t t-if="o.customer_id.street">, <span t-field="o.customer_id.street" style="font-size:10px"/></t><t t-if="o.customer_id.street2 or o.customer_id.zip">, <span t-field="o.customer_id.street2" style="font-size:10px"/><span t-field="o.customer_id.zip" style="font-size:10px"/></t><t t-if="o.customer_id.city">, <span t-field="o.customer_id.city" style="font-size:10px"/></t>
+                                <table class="table table-borderless"
+                                       style="margin-top:0px;margin-bottom:0px;padding:0px;">
+                                    <tr style="margin:0px;padding:0px;">
+                                        <td style="margin:0px;padding:0px;">
+                                            <strong style="font-size:10px">Datum der Prüfung:</strong>
+                                            <span t-field="o.mail_activity_id.schedule_date"
+                                                  t-options='{"format": "dd.MM.yyyy"}' style="font-size:10px"/>
+                                        </td>
+                                        <td style="margin:0px;padding:0px;">
+                                            <strong style="font-size:10px;">Gerätetyp:</strong>
+                                            <span t-field="o.equipment_id.category_id.name" style="font-size:10px;"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                    <t t-if="o.mail_activity_id.is_torque_measurement">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="checkbox_torque_measurement" checked="checked"/>
+
+                                        <label class="custom-control-label" for="checkbox_torque_measurement">
+                                        </label>
+                                        <span style="font-size:10px">Rollenbremsprüfstand auf der Basis der
+                                            Drehmomentmessung
+                                        </span>
+                                    </t>
+                                    <t t-if="not o.mail_activity_id.is_torque_measurement">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="checkbox_regular"/>
+                                        <label class="custom-control-label" for="checkbox_torque_measurement"
+                                        >
+                                        </label>
+                                        <span style="font-size:10px">Rollenbremsprüfstand auf der Basis der
+                                            Drehmomentmessung
+                                        </span>
+                                    </t>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                    <t t-if="o.mail_activity_id.is_thermal_power">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="checkbox_thermal_power" checked="checked"/>
+
+                                        <label class="custom-control-label" for="checkbox_thermal_power">
+                                        </label>
+                                        <span style="font-size:10px">Rollenbremsprüfstand auf der Basis der
+                                            Wirkleistungsmessung
+                                        </span>
+                                    </t>
+                                    <t t-if="not o.mail_activity_id.is_thermal_power">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="checkbox_thermal_power"/>
+                                        <label class="custom-control-label" for="checkbox_thermal_power"/>
+                                        <span style="font-size:10px">Rollenbremsprüfstand auf der Basis der
+                                            Wirkleistungsmessung
+                                        </span>
+
+                                    </t>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                    <t t-if="o.mail_activity_id.is_plate">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="checkbox_plate" checked="checked"/>
+
+                                        <label class="custom-control-label" for="checkbox_plate"
+                                        />
+                                        <span style="font-size:10px">Plattenbremsprüfstand</span>
+                                    </t>
+                                    <t t-if="not o.mail_activity_id.is_plate">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="checkbox_plate"/>
+                                        <label class="custom-control-label" for="checkbox_plate"
+                                        />
+                                        <span style="font-size:10px">Plattenbremsprüfstand</span>
+                                    </t>
+                                </div>
+                                <table class="table table-borderless table-sm"
+                                       style="margin-top:0px;margin-bottom:0px;padding:0px;">
+                                    <tr style="margin-bottom:0px;padding:0px;">
+                                        <td style="margin-bottom:0px;padding:0px;">
+                                            <strong style="font-size:10px">Hersteller:</strong>
+                                            <span t-field="o.manufacturer_id" style="font-size:10px"/>
+                                        </td>
+                                        <td style="margin-bottom:0px;padding:0px;">
+                                            <strong style="font-size:10px">Fabrikat-Nr:</strong>
+                                            <span t-field="o.equipment_id.serial_no" style="font-size:10px"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-borderless table-sm"
+                                       style="margin-top:0px;margin-bottom:0px;padding:0px;">
+                                    <tr style="padding:0;margin:0;">
+                                        <td style="padding:0;margin:0;">
+                                            <strong style="font-size:10px">Baujahr / Inbetriebnahme:</strong>
+                                            <span style="font-size:10px">Monat:
+                                                <span t-field="o.date"
+                                                      t-options='{"format": "M"}'/>
+                                                /Jahr:
+                                                <span t-field="o.date"
+                                                      t-options='{"format": "YYYY"}'/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr style="padding:0;margin:0;">
+                                        <td style="padding:0;margin:0;">
+                                            <strong style="font-size:10px">Bauartprüfung nach der Richtlinie von 2011
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-4" style="border:1px solid black;">
+                                <strong style="font-size:10px">Prüfmittel Seriennummern</strong>
+                                <table class="table table-borderless table-sm" style="margin:0px;padding:0px;">
+                                    <tr>
+                                        <td>
+                                            <span style="font-size:10px">Kalibriervornichtung:</span>
+                                            <span style="font-size:10px"
+                                                  t-field="o.mail_activity_id.calibration_device"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-size:10px">siehe Ks</span>
+                                            <span style="font-size:10px" t-field="o.mail_activity_id.ks"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p style="margin-top:50px;font-size:10px;text-align:center;">Alle verwendeten Prüfmitel
+                                    sind
+                                    <br></br>
+                                    auf nationale oder internationale
+                                    <br></br>
+                                    Normen rückführbar
+                                </p>
+                            </div>
+
+
+                        </div>
+                        <strong style="font-size:10px">Ergebnis der Stückprüfung- Messtechnische Eigenschaften
+                            <br></br>
+                        </strong>
+                        <span style="font-size:10px">Max. Messbereich 0 -</span>
+                        <span style="font-size:10px"
+                              t-field="o.mail_activity_id.small_measuring_range"/>
+                        <span style="font-size:10px">KN pro Anzeige (kleiner Messbereich)</span>
+                        <span style="font-size:10px;margin-left:180px;">Bei Vierplattenprüfstände wırd die Bezeichnung
+                        </span>
+                        <br></br>
+                        <span style="font-size:10px">Max. Messbereich 0 -</span>
+                        <span style="font-size:10px" t-field="o.mail_activity_id.large_measuring_range"/>
+                        <span style="font-size:10px">KN pro Anzeige (großer Messbereich)</span>
+                        <span style="font-size:10px;margin-left:192px">klein / groß als vorne / hinten verwendet.</span>
+                        <table class="table table-bordered" style="padding:0;margin:5px 0 5px 0;">
+                            <thead>
+                                <tr>
+                                    <td class="grey-cell" style="width :30%;padding:0 0 0 10px;">
+                                        <strong style="font-size:10px;"></strong>
+                                    </td>
+                                    <td class="grey-cell" style="width :20%;padding:0;text-align:center;" colspan="2">
+                                        <strong style="font-size:10px;">links [kN]</strong>
+                                    </td>
+                                    <td class="grey-cell" style="width :20%;padding:0;text-align:center;" colspan="2">
+                                        <strong style="font-size:10px;">rechts [kN]</strong>
+                                    </td>
+                                    <td class="grey-cell" style="width :20%;padding:0;text-align:center;" colspan="2">
+                                        <strong style="font-size:10px;">max.Fehler [%]</strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:0 0 0 10px;">
+                                        <span style="font-size:10px;">Messbereich: vorne/hinten oder</span>
+                                    </td>
+                                    <td style="padding:0 0 0 10px;">
+                                        <span style="font-size:10px;">klein</span>
+                                    </td>
+                                    <td style="padding:0 0 0 10px;">
+                                        <span style="font-size:10px;">groß</span>
+                                    </td>
+                                    <td style="padding:0 0 0 10px;">
+                                        <span style="font-size:10px;">klein</span>
+                                    </td>
+                                    <td style="padding:0 0 0 10px;">
+                                        <span style="font-size:10px;">groß</span>
+                                    </td>
+                                    <td style="padding:0 0 0 10px;">
+                                        <span style="font-size:10px;">klein</span>
+                                    </td>
+                                    <td style="padding:0 0 0 10px;">
+                                        <span style="font-size:10px;">groß</span>
+                                    </td>
+                                </tr>
+                                <t t-foreach="o.mail_activity_id.measuring_ids" t-as="line">
+                                    <tr>
+                                        <td style="padding:0 0 0 10px;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.name"
+                                            />
+                                        </td>
+                                        <td style="padding:0 0 0 10px;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.left_small"
+                                            />
+                                        </td>
+                                        <td style="padding:0 0 0 10px;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.left_large"
+                                            />
+                                        </td>
+                                        <td style="padding:0 0 0 10px;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.right_small"
+                                            />
+                                        </td>
+                                        <td style="padding:0 0 0 10px;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.right_large"
+                                            />
+                                        </td>
+                                        <td style="padding:0 0 0 10px;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.max_error_small"
+                                            />
+                                        </td>
+                                        <td style="padding:0 0 0 10px;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.max_error_large"
+                                            />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered" style="padding:0;margin:0 0 5px 0;">
+                            <thead>
+                                <tr>
+                                    <td class="grey-cell" style="width :30%;padding:0 0 0 10px;">
+                                        <strong style="font-size:10px;">Max Differenz der Anzeige links/rechts</strong>
+                                    </td>
+                                    <td class="grey-cell" style="width :20%;padding:0;text-align:center;">
+                                        <strong style="font-size:10px;">[kN]</strong>
+                                    </td>
+                                    <td class="grey-cell" style="width :20%;padding:0;text-align:center;" >
+                                        <strong style="font-size:10px;">[%]</strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.mail_activity_id.max_difference_ids" t-as="line">
+                                    <tr>
+                                        <td style="padding:0 0 0 10px;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.name"
+                                            />
+                                        </td>
+                                        <td style="padding:0 0 0 10px;text-align:center;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.kn"
+                                            />
+                                        </td>
+                                        <td style="padding:0 0 0 10px;text-align:center;">
+                                            <span style="font-size:10px;"
+                                                  t-field="line.percentage"
+                                            />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="custom-control custom-checkbox checkbox-xl">
+                            <t t-if="o.mail_activity_id.is_test_speed">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_test_speed" checked="checked"/>
+
+                                <label class="custom-control-label" for="checkbox_is_test_speed"/>
+
+                                <span style="font-size:10px">Prüfgeschwindigkeit bei Nenndrehzahl und max. Bremslast, für die der Bremsenprüfstand ausgelegt ist, wurde eingehalten
+                                </span>
+                            </t>
+                            <t t-if="not o.mail_activity_id.is_test_speed">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_test_speed"/>
+                                <label class="custom-control-label" for="checkbox_is_test_speed"/>
+
+                                <span style="font-size:10px">Prüfgeschwindigkeit bei Nenndrehzahl und max. Bremslast, für die der Bremsenprüfstand ausgelegt ist, wurde eingehalten
+                                </span>
+                            </t>
+                        </div>
+                        <div class="custom-control custom-checkbox checkbox-xl col-12">
+                            <t t-if="o.mail_activity_id.is_key_switch">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_key_switch" checked="checked"/>
+
+                                <label class="custom-control-label" for="checkbox_is_key_switch"/>
+                                <span style="font-size:10px">Schlupfabschaltung bei max. 30 % tatsächlichem Schlupf wurde eingehalten
+                                </span>
+                            </t>
+                            <t t-if="not o.mail_activity_id.is_key_switch">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_key_switch"/>
+                                <label class="custom-control-label" for="checkbox_is_key_switch"/>
+                                <span style="font-size:10px">Schlupfabschaltung bei max. 30 % tatsächlichem Schlupf wurde eingehalten
+                                </span>
+                            </t>
+                        </div>
+
+                        <div class="custom-control custom-checkbox checkbox-xl col-12">
+                            <t t-if="o.mail_activity_id.is_error_limit">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_error_limit" checked="checked"/>
+
+                                <label class="custom-control-label" for="checkbox_is_error_limit"/>
+                                <span style="font-size:10px;">
+                                    Die Fehlergrenzen für die Anzeige von + - 2% für den gesamten Messbereich, auf den Skalenendwert, wurden eingehalten. Ab Rili 2011, bei nominaler maximaler Bremskraft von 8 kN im Messbereich 0-2000 N + -40 N und darüber + -2% vom momentanen Messwert, und bei einer nominalen maximalen Bremskraft über 8 kN im Messbereich von 0-5000 N + -100 N und darüber 2 % vom momentanen Messwert
+                                </span>
+                            </t>
+                            <t t-if="not o.mail_activity_id.is_error_limit">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_error_limit"/>
+                                <label class="custom-control-label" for="checkbox_is_error_limit"/>
+                                <span style="font-size:10px;line-height:0;">
+                                    Die Fehlergrenzen für die Anzeige von + - 2% für den gesamten Messbereich, auf den Skalenendwert, wurden eingehalten. Ab Rili 2011, bei nominaler maximaler Bremskraft von 8 kN im Messbereich 0-2000 N + -40 N und darüber + -2% vom momentanen Messwert, und bei einer nominalen maximalen Bremskraft über 8 kN im Messbereich von 0-5000 N + -100 N und darüber 2 % vom momentanen Messwert
+                                </span>
+                            </t>
+                        </div>
+                        <div class="custom-control custom-checkbox checkbox-xl col-12">
+                            <t t-if="o.mail_activity_id.is_permissible">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_permissible" checked="checked"/>
+
+                                <label class="custom-control-label" for="checkbox_is_permissible"/>
+                                <span style="font-size:10px">
+                                    Die zulässige Abweichung zwischen der Anzeige der beiden Messgeräte li - re von 5 % des größeren Werts, jedoch höchstens 2 % des Skalenwerts, wurde eingehalten
+                                </span>
+                            </t>
+                            <t t-if="not o.mail_activity_id.is_permissible">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_permissible"/>
+                                <label class="custom-control-label" for="checkbox_is_permissible"/>
+                                <span style="font-size:10px">
+                                    Die zulässige Abweichung zwischen der Anzeige der beiden Messgeräte li - re von 5 % des größeren Werts, jedoch höchstens 2 % des Skalenwerts, wurde eingehalten
+                                </span>
+                            </t>
+                        </div>
+                        <div class="custom-control custom-checkbox checkbox-xl col-12">
+                            <t t-if="o.mail_activity_id.is_less_nominal_diameter">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_less_nominal_diameter" checked="checked"/>
+
+                                <label class="custom-control-label" for="checkbox_is_less_nominal_diameter"/>
+                                <span style="font-size:10px;">Der gemessene Rollendurchmesser war an keiner Stelle geringer als 98 % vom Nenndurchmesser
+                                </span>
+                            </t>
+                            <t t-if="not o.mail_activity_id.is_less_nominal_diameter">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_less_nominal_diameter"/>
+                                <label class="custom-control-label" for="checkbox_is_less_nominal_diameter"/>
+                                <span style="font-size:10px;">Der gemessene Rollendurchmesser war an keiner Stelle geringer als 98 % vom Nenndurchmesser
+                                </span>
+                            </t>
+                        </div>
+                        <div class="custom-control custom-checkbox checkbox-xl col-12">
+                            <t t-if="o.mail_activity_id.is_surface_quality">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_surface_quality" checked="checked"/>
+
+                                <label class="custom-control-label" for="checkbox_is_surface_quality"/>
+                                <span style="font-size:10px;">Oberflächenbeschaffenheit der Rollen wurde eingehalten
+                                </span>
+                            </t>
+                            <t t-if="not o.mail_activity_id.is_surface_quality">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox_is_surface_quality"/>
+                                <label class="custom-control-label" for="checkbox_is_surface_quality"/>
+                                <span style="font-size:10px;">Oberflächenbeschaffenheit der Rollen wurde eingehalten
+                                </span>
+                            </t>
+                        </div>
+                        <div>
+                            <div class="row col-12" style="margin:0;padding:0;">
+                                <div class="col-7" style="margin:0;padding:0;">
+                                    <strong style="font-size:9px">Allgemeiner Funktionszustand des Bremsprüfstandes
+                                        nach Richtlinie 7.2.1 (Beschreibung / Mängel / Bemerkungen):
+                                    </strong>
+                                    <p style="font-size:10px">Gegen die Verwendung des Bremsprüfstandes für
+                                        Bremswirkungsprüfungen im Rahmen von Untersuchungen nach
+                                        §29 StVZO und
+                                        Anlage VIII und VIIIa in Verbindung mit §41 StVZO bestehen:
+                                    </p>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_no_concerns">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_no_concerns" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_is_no_concerns"/>
+                                            <span style="font-size:10px;">Keine Bedenken
+                                            </span>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_no_concerns">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_no_concerns"/>
+                                            <label class="custom-control-label" for="checkbox_is_no_concerns"/>
+                                            <span style="font-size:10px;">Keine Bedenken
+                                            </span>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_concerns">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_concerns" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_is_no_concerns"/>
+                                            <span style="font-size:10px;">Bedenken. Die festgestellten Mängel sind
+                                                umgehend zu beheben. Eine
+                                                Wieder- holung der Stückprüfung ist innerhalb von 4 Wochen durchzuführen
+                                            </span>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_concerns">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_concerns"/>
+                                            <label class="custom-control-label" for="checkbox_is_no_concerns"/>
+                                            <span style="font-size:10px;">Bedenken. Die festgestellten Mängel sind
+                                                umgehend zu beheben. Eine
+                                                Wieder- holung der Stückprüfung ist innerhalb von 4 Wochen durchzuführen
+                                            </span>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_next_routine_test">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_next_routine_test" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_is_next_routine_test"/>
+                                            <span style="font-size:10px;">Nächste Stückprüfung: Monat:
+                                                <span
+                                                        t-field="o.mail_activity_id.month" style="font-size:10px"
+                                                />
+                                                <field name="month" class="oe_inline"/>
+                                                Jahr:
+                                                <span
+                                                        t-field="o.mail_activity_id.year" style="font-size:10px"
+                                                />
+                                                <span style="font-size:10px;margin-top:1px">
+                                                    Dieser Termin wurde am Prüfstand mit einer Plakette kenntlich
+                                                    gemacht
+                                                </span>
+                                            </span>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_next_routine_test">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_next_routine_test"/>
+                                            <label class="custom-control-label" for="checkbox_is_next_routine_test"/>
+                                            <span style="font-size:10px;">Nächste Stückprüfung: Monat:
+                                                <span
+                                                        t-field="o.mail_activity_id.month" style="font-size:10px"
+                                                />
+                                                <field name="month" class="oe_inline"/>
+                                                Jahr:
+                                                <span
+                                                        t-field="o.mail_activity_id.year" style="font-size:10px"
+                                                />
+                                                <span style="font-size:10px;margin-top:1px">
+                                                    Dieser Termin wurde am Prüfstand mit einer Plakette kenntlich
+                                                    gemacht
+                                                </span>
+                                            </span>
+                                        </t>
+                                    </div>
+                                    <p style="font-size:10px;border-bottom:1px solid black;margin-top:1px;">
+                                        <strong>Prüfer Name:</strong>
+                                        <span
+                                                t-field="o.create_uid.company_id.name"
+                                        />
+                                    </p>
+                                    <strong style="font-size:10px;margin-top:0.5px;">Prüfer Anschrift, Firmenstempel:
+                                    </strong>
+                                    <t t-if="o.create_uid.company_id.street"><span t-field="o.create_uid.company_id.street" style="font-size:10px;"/></t><t t-if="o.create_uid.company_id.zip">, <span t-field="o.create_uid.company_id.zip" style="font-size:10px;"/></t><t t-if="o.customer_id.city">, <span t-field="o.customer_id.city" style="font-size:10px;"/></t>
+                                </div>
+                                <div class="col-5">
+                                    <strong style="font-size:10px">Die Stückprüfung wurde durchgeführt von einem Sachkundigen:
+                                    </strong>
+                                    <div style="border:1px solid black;">
+                                        <div class="custom-control custom-checkbox checkbox-xl"
+                                             style="margin-left:10px;">
+                                            <t t-if="o.mail_activity_id.is_manufacturer">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_manufacturer" checked="checked"/>
+
+                                                <label class="custom-control-label" for="checkbox_is_manufacturer"/>
+                                                <span style="font-size:10px;">des Herstellers oder Importeurs
+                                                </span>
+                                            </t>
+                                            <t t-if="not o.mail_activity_id.is_manufacturer">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_manufacturer"/>
+                                                <label class="custom-control-label" for="checkbox_is_manufacturer"/>
+                                                <span style="font-size:10px;">des Herstellers oder Importeurs
+                                                </span>
+                                            </t>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl"
+                                             style="margin-left:10px;">
+                                            <t t-if="o.mail_activity_id.is_responsible_calibration_authority">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_responsible_calibration_authority"
+                                                       checked="checked"/>
+
+                                                <label class="custom-control-label"
+                                                       for="checkbox_is_responsible_calibration_authority"/>
+                                                <span style="font-size:10px;">der zuständigen Eichbehörde
+                                                </span>
+                                            </t>
+                                            <t t-if="not o.mail_activity_id.is_responsible_calibration_authority">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_responsible_calibration_authority"/>
+                                                <label class="custom-control-label"
+                                                       for="checkbox_is_responsible_calibration_authority"/>
+                                                <span style="font-size:10px;">der zuständigen Eichbehörde
+                                                </span>
+                                            </t>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl"
+                                             style="margin-left:10px;">
+                                            <t t-if="o.mail_activity_id.is_state_side">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_state_side" checked="checked"/>
+
+                                                <label class="custom-control-label" for="checkbox_is_state_side"/>
+                                                <span style="font-size:10px;">von staatlicher Seite
+                                                </span>
+                                            </t>
+                                            <t t-if="not o.mail_activity_id.is_state_side">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_state_side"/>
+                                                <label class="custom-control-label" for="checkbox_is_state_side"/>
+                                                <span style="font-size:10px;">von staatlicher Seite
+                                                </span>
+                                            </t>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox checkbox-xl"
+                                             style="margin-left:10px;">
+                                            <t t-if="o.mail_activity_id.is_technical_test">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_technical_test" checked="checked"/>
+
+                                                <label class="custom-control-label" for="checkbox_is_technical_test"/>
+                                                <span style="font-size:10px;">einer Technischen Prüfstelle
+                                                </span>
+                                            </t>
+                                            <t t-if="not o.mail_activity_id.is_technical_test">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_technical_test"/>
+                                                <label class="custom-control-label" for="checkbox_is_technical_test"/>
+                                                <span style="font-size:10px;">einer Technischen Prüfstelle
+                                                </span>
+                                            </t>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl"
+                                             style="margin-left:10px;">
+                                            <t t-if="o.mail_activity_id.is_officially_organizations">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_officially_organizations" checked="checked"/>
+
+                                                <label class="custom-control-label"
+                                                       for="checkbox_is_officially_organizations"/>
+                                                <span style="font-size:10px;">der amtlich anerkannten
+                                                    Überwachungsorgnisationen
+                                                </span>
+                                            </t>
+                                            <t t-if="not o.mail_activity_id.is_officially_organizations">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_officially_organizations"/>
+
+                                                <label class="custom-control-label"
+                                                       for="checkbox_is_officially_organizations"/>
+                                                <span style="font-size:10px;">der amtlich anerkannten
+                                                    Überwachungsorgnisationen
+                                                </span>
+
+                                            </t>
+                                        </div>
+                                        <div class="custom-control custom-checkbox checkbox-xl"
+                                             style="margin-left:10px;">
+                                            <t t-if="o.mail_activity_id.is_vehicle">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_vehicle" checked="checked"/>
+
+                                                <label class="custom-control-label" for="checkbox_is_vehicle"/>
+                                                <span style="font-size:10px;">der KFZ-Innung oder des
+                                                    KFZ-Landesverbandes
+                                                </span>
+                                            </t>
+                                            <t t-if="not o.mail_activity_id.is_vehicle">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="checkbox_is_vehicle"/>
+                                                <label class="custom-control-label" for="checkbox_is_vehicle"/>
+                                                <span style="font-size:10px;">der KFZ-Innung oder des
+                                                    KFZ-Landesverbandes
+                                                </span>
+                                            </t>
+                                        </div>
+                                        <p style="font-size:10px;border-top:1px solid black;text-align:center;margin-top:45px;">
+                                            <strong>Datum, Unterschrift</strong>
+                                        </p>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="wepelo_equipment_bremsprufstand_protocol" model="ir.actions.report">
+            <field name="name">Bremsprüfstand</field>
+            <field name="model">equipment.protocol</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">wepelo_equipment.report_equipment_protocol_bremsprufstand</field>
+            <field name="report_file">wepelo_equipment.report_equipment_protocol_bremsprufstand</field>
+            <field name="print_report_name">(object._get_report_filename())</field>
+            <field name="binding_model_id" ref="model_equipment_protocol"/>
+            <field name="binding_type">report</field>
+        </record>
+
+</odoo>

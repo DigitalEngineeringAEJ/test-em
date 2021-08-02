@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    
+     <menuitem
+        id="maintenance.menu_maintenance_title"
+        name="Safety Master"
+        web_icon="wepelo_equipment,static/description/icon.png"
+        />
+
+</odoo>

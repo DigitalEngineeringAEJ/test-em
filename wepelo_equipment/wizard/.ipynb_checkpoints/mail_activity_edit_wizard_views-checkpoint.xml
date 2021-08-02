@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="mail_activity_edit_wizard" model="ir.ui.view">
+        <field name="name">Mail Activity Edit</field>
+        <field name="model">mail.activity.edit.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="schedule_date"/>
+                        <label for="duration"/>
+                        <div>
+                            <field name="duration"
+                                   widget="float_time"
+                                   class="oe_inline"/> <span class="ml8">hours</span>
+                        </div>
+                    <field name="user_id" options="{'no_create':True}"/>
+                </group>
+                <footer>
+                     <button
+                        name="save"
+                        string="Save"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

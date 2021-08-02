@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_equipment_request_view_form_inherit_wepelo" model="ir.ui.view">
+        <field name="name">equipment.request.inherit.wepelo</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+        <field name="arch" type="xml">
+        <field name="maintenance_type" position="attributes">
+            <attribute name="invisible">True</attribute>
+        </field>
+        <field name="request_date" position="attributes">
+            <attribute name="readonly">False</attribute>
+        </field>
+                   <xpath expr="//group/group[2]" position="attributes">
+            <attribute name="invisible">True</attribute>
+        </xpath>
+          <xpath expr="//group/group[2]" position="after">
+              <group string="Package Information">
+                <field name="pickup_address"/>
+                <field name="delivery_address"/>
+                <field name="height"/>
+                <field name="width"/>
+                <field name="depth"/>
+                <field name="weight"/>
+            </group>
+          </xpath>
+           <group position="after">
+                <group>
+                    <group>
+                        <field name="user_id" string="Responsible"/>
+                        <field name="schedule_date"/>
+                        <label for="duration"/>
+                        <div>
+                            <field name="duration"
+                                   widget="float_time"
+                                   class="oe_inline"/> <span class="ml8">hours</span>
+                        </div>
+                        <field name="priority" widget="priority"/>
+                        <field name="email_cc" string="Email cc" groups="base.group_no_one"/>
+                        <field name="signature" widget="signature"/>
+                        <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                    </group>
+                </group>
+            </group>
+            <field name="request_date" position="after">
+                <field name="x_durchPI"/>
+                <field name="x_garantie"/>
+                <field name="x_angegebener_fehler"/>
+                <field name="x_reparatur"/>
+            </field>
+            <header>
+            <button name="action_generate_protocol_rep" string="Reparatur Protokoll" type="object" class="oe_highlight"/>
+            </header>
+            <sheet>
+            <notebook>
+            <page string="Time">
+            <group name="container_row_2">
+                <group priority="1">
+                    <field name="last_calibration"/>
+                    <field name="receipt_date"/>
+                    <field name="outgoing_date"/>
+                </group>
+                <group priority="2">
+                    <field name="lead_time_manufacturer"/>
+                    <field name="lead_time_contractor"/>
+                    <field name="sum_lead_time"/>
+                    <field name="commment"/>  
+                </group>
+                </group>
+            </page>
+            <page string="Costs">
+                <group name="container_row_2">
+                <group priority="1">
+                    <field name="costs_manufacturer"/>
+                    <field name="costs_contractor"/>
+                    <field name="costs_parcel_service"/>
+                    <field name="sum_costs"/>
+                 </group>
+                <group priority="2">
+                    <field name="invoice_nr"/> 
+                </group>
+                </group>
+            </page>
+            </notebook>
+          </sheet>
+        </field>
+    </record>
+</odoo>

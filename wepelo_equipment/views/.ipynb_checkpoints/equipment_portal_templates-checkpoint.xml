@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_frontend_layout" name="Main Frontend Layout" inherit_id="portal.frontend_layout">
+         <xpath expr="//div[hasclass('container')]//a" position="replace">
+        </xpath>
+        <xpath expr="//div[hasclass('container')]" position="before">
+              <a href="/" class="navbar-brand logo">
+                 <img src="/wepelo_equipment/static/src/img/icon.png"/>
+              </a>
+              <a href="/" class="navbar-brand logo">
+                 <img t-att-src="'/logo.png?company=%s' % res_company.id" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+               </a>
+        </xpath>
+
+    </template>
+
+    <template id="portal_layout11111" name="Portal layout: equipment menu entry" inherit_id="portal.portal_layout"
+              priority="40">
+        <xpath expr="//div[hasclass('o_portal_wrap')]//div[hasclass('container')]//div[hasclass('o_my_sidebar')]" position="inside">
+            <div id='calendar'/>
+        </xpath>
+        <xpath expr="//div[hasclass('o_portal_wrap')]//div[hasclass('container')]//div[hasclass('o_my_sidebar')]" position="attributes">
+            <attribute name="class">col-xl-4</attribute>
+        </xpath>
+    </template>
+
+    <template id="portal_layout" name="Portal layout: equipment menu entry" inherit_id="portal.portal_breadcrumbs"
+              priority="40">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'equipment' or equipment"
+                t-attf-class="breadcrumb-item #{'active ' if not equipment else ''}">
+                <a t-if="equipment" t-attf-href="/my/equipments?{{ keep_query() }}">Equipments</a>
+                <t t-else="">Equipments</t>
+            </li>
+            <li t-if="equipment" class="breadcrumb-item active">
+                <t t-esc="equipment.name"/>
+            </li>
+            <li t-if="page_name == 'protocol' or protocol"
+                t-attf-class="breadcrumb-item #{'active ' if not protocol else ''}">
+                <a t-if="protocol" t-attf-href="/my/protocols?{{ keep_query() }}">Protocols</a>
+                <t t-else="">Protocols</t>
+            </li>
+             <li t-if="(page_name == 'protocol' or protocol) and not protocol" style="padding-left: 5%;">
+                <a id="print-protocol-report" href="#" class="btn btn-secondary btn-sm">
+                     <b> Print </b>
+                 </a>
+            </li>
+            <li t-if="protocol" class="breadcrumb-item active">
+                <t t-esc="protocol.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home" name="Portal My Home: equipment entries" inherit_id="portal.portal_my_home"
+              priority="40">
+         <xpath expr="//div[hasclass('o_portal_my_home')]//h3" position="before">
+               <form class="form-inline o_wslides_nav_navbar_right order-lg-3" action="/my/home" role="search" style="padding-bottom: 8%;">
+                    <div class="input-group input-group-sm w-100">
+                        <input t-att-value="global_search" type="text" class="form-control form-control-sm" style="height: 40px;" placeholder="Search" name="search"/>
+                        <span class="input-group-append" style="height: 40px;">
+                             <a style="background-color: #FFFFFF; border: 1px solid #ced4da;" class="btn" role="button" href="/my/home">
+                                <span style="padding-top: 9px;" class="fa fa-close"></span>
+                            </a>
+                            <button class="btn btn-secondary" type="submit">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+        </xpath>
+        <xpath expr="//div[hasclass('o_portal_my_home')]//h3" position="replace">
+            <h3>Equipement Master -
+                <t t-esc="user_id.name"/>
+            </h3>
+        </xpath>
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Equipment</t>
+                <t t-set="url" t-value="'/my/equipments?global_search=' + global_search if global_search else '/my/equipments'"/>
+                <t t-set="count" t-value="equipment_count"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Protocol</t>
+                <t t-set="url" t-value="'/my/protocols?global_search=' + global_search if global_search else '/my/protocols'"/>
+                <t t-set="count" t-value="protocol_count"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- ################### Equipment ############################ -->
+
+     <template id="portal_my_equipments" name="My Equipments">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Equipments</t>
+            </t>
+            <t t-if="not equipments">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no equipments.
+                </div>
+            </t>
+            <t t-if="grouped_equipments">
+                <t t-call="portal.portal_table">
+                    <t t-foreach="grouped_equipments" t-as="equipments">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if groupby in ['category'] else ''}}">
+                                <th>Equipment Name</th>
+                                 <th class="text-center">Inventory Number</th>
+                                 <th class="text-center">Serial Number</th>
+                                <th class="text-center">Technician</th>
+
+                                <th class="text-center" t-if="groupby != 'category'">Equipment Category</th>
+                                <th t-elif="groupby == 'category'">
+                                    <em class="font-weight-normal text-muted">
+                                        <span t-field="equipments[0].sudo().category_id"/>
+                                        for equipment:
+                                    </em>
+                                    <span t-field="equipments[0].sudo().category_id.name"/>
+                                </th>
+                                <th class="text-left">Protocol Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="equipments" t-as="equipment">
+                                <td>
+                                    <a t-attf-href="/my/equipment/#{equipment.id}?{{ keep_query() }}">
+                                        <span t-field="equipment.name"/>
+                                    </a>
+                                </td>
+                                 <td class="text-center">
+                                    <span t-field="equipment.inventory_number"/>
+                                </td>
+                                 <td class="text-center">
+                                    <span t-field="equipment.serial_no"/>
+                                </td>
+
+                                <td class="text-center">
+                                    <span t-field="equipment.technician_user_id"/>
+                                </td>
+
+                                <td class="text-center">
+                                    <span t-field="equipment.category_id"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="equipment.protocol_number"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_equipment" name="My Equipment">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <small class="text-muted">equipment -</small>
+                        <span t-field="equipment.name"/>
+                        <span class="float-right">
+                            <a style="color:#FFFFFF !important;" role="button" id="form-schedule-activity"
+                               class="btn btn-sm btn-secondary">
+                                <span class="fa fa-clock-o" role="img" aria-label="Schedule activity"
+                                      title="Schedule activity"/>
+                                <span>Schedule activity</span>
+                            </a>
+                            <a style="color:#FFFFFF !important;" role="button" id="form-maintenance-request"
+                               class="btn btn-sm btn-secondary">
+                                <span class="fa fa- fa-wrench" role="img" aria-label="Create Maintenance Request"
+                                      title="Create Maintenance Request"/>
+                                <span>Create Maintenance Request</span>
+                            </a>
+                        </span>
+                    </h5>
+                </t>
+                <t t-set="card_body">
+                    <div class="alert-danger" style="display:none;padding: 15px;margin-bottom: 10px;">
+                        <p></p>
+                    </div>
+                    <div class="alert-success" style="display:none;padding: 15px;margin-bottom: 10px;">
+                        <p></p>
+                    </div>
+                    <!-- Popup for schedule activity -->
+                    <div class="modal fade schedule-activity-popup" id="ok-modal-alert" tabindex="-1" role="dialog"
+                         aria-labelledby="" aria-hidden="true" style="height:auto;top:5%;overflow: unset;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="alert-title">Schedule Activity</h5>
+                                </div>
+                                <form action="/" id="schedule_new_activity" method="POST">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <input  type="hidden" id="res_id" name="res_id" t-att-value="equipment.id"/>
+                                    <input  type="hidden" id="equipment_id" name="equipment_id" t-att-value="equipment.id"/>
+                                    <div class="modal-body">
+                                        <div class="row ">
+                                            <div class="col-xs-12">
+                                                <p id="alert-msg">
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="activity_type_id" class="col-form-label">Activity Type: <span style="color:red;">*</span></label>
+                                                    <select id="activity_type_id" name="activity_type_id"
+                                                            required="True"
+                                                            class="form-control select2">
+                                                        <option value="">---</option>
+                                                        <t t-foreach="activity_type_ids" t-as="activity_type">
+                                                            <option t-att-value="activity_type['id']"
+                                                                    t-esc="activity_type['name']"/>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="summary" class="col-form-label">Summary:</label>
+                                                    <input type="text" id="summary" name="summary"
+                                                           t-att-value="equipment.name" class="form-control"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="customer_id" class="col-form-label">Customer:</label>
+                                                    <select id="customer_id" name="customer_id"
+                                                            readonly="True"
+                                                            class="form-control select2">
+                                                        <option t-att-value="equipment.customer_id.id if equipment.customer_id else ''"><t t-esc="equipment.customer_id.name if equipment.customer_id else ''"/></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                  <label for="date_deadline" class="col-form-label">Due Date: <span style="color:red;">*</span></label>
+                                                  <input name="date_deadline" class="form-control" type="date" value="" id="date_deadline"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="user_id"  class="col-form-label">Assigned To:</label>
+                                                    <select id="user_id" name="user_id" readonly="True"
+                                                            class="form-control select2">
+                                                        <option t-att-value="equipment.technician_user_id.id if equipment.technician_user_id else ''"><t t-esc="equipment.technician_user_id.name if equipment.technician_user_id else ''"/></option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label for="res_name"  class="col-form-label">Document Name:</label>
+                                                    <input type="text" id="res_name" name="res_name"
+                                                           t-att-value="(equipment.customer_id.name if equipment.customer_id else '') + '/' + equipment.name" class="form-control"
+                                                           readonly="True"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top:5%">
+                                            <div class="col-12">
+                                                <label for="note"  class="col-form-label">Description:</label>
+                                                <textarea id="note" name="note" class="form-control"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default pull-right"
+                                                data-dismiss="modal">
+                                            <i class="fa fa-close"></i>
+                                            Close
+                                        </button>
+                                        <button type="submit" class="btn bg-green pull-left hide">
+                                            <i class="fa fa-check"></i>
+                                            Schedule
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Popup for create maintenance request-->
+                    <div class="modal fade maintenance-request-popup" id="ok-modal-maintenance-request" tabindex="-1" role="dialog"
+                         aria-labelledby="" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="max-height: none;">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="alert-title">Create Maintenance Request</h5>
+                                </div>
+                                <form action="/" id="create_maintenance_request" method="POST">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="modal-body">
+                                        <div class="row ">
+                                            <div class="col-xs-12">
+                                                <p id="alert-msg">
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                             <input type="hidden" id="serial_no" name="serial_no"  t-att-value="equipment.serial_no"/>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="name" class="col-form-label">Title: <span style="color:red;">*</span></label>
+                                                    <input class="form-control" type="text" id="name" name="name"  t-att-value="name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="equipment_id" class="col-form-label">Equipment: </label>
+                                                    <select id="equipment_id" name="equipment_id"
+                                                            readonly="True"
+                                                            class="form-control select2">
+                                                         <option t-att-value="equipment.id if equipment else ''"><t t-esc="equipment.name if equipment else ''"/></option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="category_id" class="col-form-label">Category:</label>
+                                                    <select id="category_id" name="category_id"
+                                                            readonly="True"
+                                                            class="form-control select2">
+                                                        <option t-att-value="equipment.category_id.id if equipment.category_id else ''"><t t-esc="equipment.category_id.name if equipment.category_id else ''"/></option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="request_date" class="col-form-label">Request Date:</label>
+                                                    <input name="request_date" class="form-control" type="date" id="request_date" t-att-value="date_today"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="x_durchPI" class="col-form-label">By PI/Region:</label>
+                                                    <textarea id="x_durchPI" name="x_durchPI" class="form-control"/>
+                                                </div>
+                                               <div  class="form-group">
+                                                    <label for="request_date" class="col-form-label">There is a guarantee:</label>
+                                                    <input type="checkbox" id="x_durchPI" name="x_garantie"/>
+                                                 </div>
+
+                                            </div>
+                                            <div class="col-6">
+                                                  <div class="form-group">
+                                                    <label for="user_id"  class="col-form-label">Responsible:</label>
+                                                    <select id="user_id" name="user_id" class="form-control select2">
+                                                            <option value="">---</option>
+                                                            <option t-foreach="user_ids" t-as="userid" t-att-value="userid['id']"
+                                                                    t-att="[('selected' if userid == equipment.technician_user_id else 'unselected' ) , 'true' ]"
+                                                            >
+                                                             <t t-esc="userid['name']"/>
+                                                        </option>
+                                                      </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                  <label for="schedule_date" class="col-form-label">Scheduled Date: </label>
+                                                  <input name="schedule_date" class="form-control" type="date" value="" id="schedule_date"/>
+                                                </div>
+
+                                                <div  class="form-group">
+                                                    <label for="duration"  class="col-form-label">Duration:</label>
+                                                    <input type="float" id="duration" name="duration" class="form-control"/>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <label for="email_cc"  class="col-form-label">Email CC:</label>
+                                                    <input name="email_cc" class="form-control" type="text" value="" id="email_cc"/>
+                                                </div>
+                                                 <div  class="form-group">
+                                                    <label for="priority">Priority:</label>
+                                                    <select id="priority" name="priority">
+                                                        <option value="1">Low</option>
+                                                        <option value="2">Normal</option>
+                                                        <option value="3">High</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                 <div class="form-group">
+                                                    <label for="x_angegebener_fehler" class="col-form-label">Specified Error:</label>
+                                                    <textarea id="x_angegebener_fehler" name="x_angegebener_fehler" class="form-control"/>
+                                                </div>
+                                            </div>
+                                             <div class="col-6">
+                                             <div class="form-group">
+                                                    <label for="x_reparatur" class="col-form-label">Repair:</label>
+                                                    <textarea id="x_reparatur" name="x_reparatur" class="form-control"/>
+                                                </div>
+                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label for="description"  class="col-form-label">Description:</label>
+                                                <textarea id="description" name="description" class="form-control"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default pull-right"
+                                                data-dismiss="modal">
+                                            <i class="fa fa-close"></i>
+                                            Close
+                                        </button>
+                                        <button type="submit" class="btn bg-green pull-left hide">
+                                            <i class="fa fa-check"></i>
+                                            Save
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-2 mb-md-0">
+                            <div t-if="equipment.category_id">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Equipment Category:</p>
+                                    <span t-field="equipment.category_id.name"/>
+                                </h6>
+                            </div>
+                            <div t-if="equipment.owner_user_id" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Owner:</p>
+                                    <span t-field="equipment.owner_user_id.name"/>
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div t-if="equipment.maintenance_team_id">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Maintenance Team:</p>
+                                    <span t-field="equipment.maintenance_team_id.name"/>
+                                </h6>
+                            </div>
+                            <div t-if="equipment.assign_date" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Assigned Date:</p>
+                                    <span t-field="equipment.assign_date"/>
+                                </h6>
+                            </div>
+                            <div t-if="equipment.scrap_date" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Scrap Date:</p>
+                                    <span t-field="equipment.scrap_date"/>
+                                </h6>
+                            </div>
+                            <div t-if="equipment.location" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Used in location:</p>
+                                    <span t-field="equipment.location"/>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="o_notebook" style="width:100%;padding:10px;">
+                            <div class="o_notebook_headers">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" disable_anchor="true" href="#description"
+                                           class="nav-link active" role="tab">Description
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" disable_anchor="true" href="#product_information"
+                                           class="nav-link" role="tab">Product Information
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" disable_anchor="true" href="#contact_details"
+                                           class="nav-link" role="tab">Address/Contact Details
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" disable_anchor="true" href="#protocol" class="nav-link"
+                                           role="tab">Protocol
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <br/>
+                                <div class="tab-pane fade show active" id="description">
+                                    <div t-if="equipment.note">
+                                        <h6>
+                                            <p style="font-weight:bold;display:inline">Note:</p>
+                                            <span t-field="equipment.category_id.name"/>
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="product_information">
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 mb-2 mb-md-0">
+                                            <div t-if="equipment.manufacturer_id">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Manufacturer:</p>
+                                                    <span t-field="equipment.manufacturer_id.name"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.model" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Model:</p>
+                                                    <span t-field="equipment.model"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.serial_no" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Serial Number:</p>
+                                                    <span t-field="equipment.serial_no"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.partner_id" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Vendor:</p>
+                                                    <span t-field="equipment.partner_id.name"/>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div t-if="equipment.effective_date">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Effective Date:</p>
+                                                    <span t-field="equipment.effective_date"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.warranty_date" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Warranty Expiration
+                                                        Date:
+                                                    </p>
+                                                    <span t-field="equipment.warranty_date"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.customer_id" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Customer:</p>
+                                                    <span t-field="equipment.customer_id.name"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.inventory_number" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Inventory Number :</p>
+                                                    <span t-field="equipment.inventory_number"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.equipment_service_id" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Service strain:</p>
+                                                    <span t-field="equipment.equipment_service_id.name"/>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="contact_details">
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 mb-2 mb-md-0">
+                                            <div t-if="equipment.street">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Street:</p>
+                                                    <span t-field="equipment.street"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.house_no" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">House Number :</p>
+                                                    <span t-field="equipment.house_no"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.zip" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Zip:</p>
+                                                    <span t-field="equipment.zip"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.city" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">City:</p>
+                                                    <span t-field="equipment.city"/>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div t-if="equipment.contact_person">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Contact Person:</p>
+                                                    <span t-field="equipment.contact_person"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.phone" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Phone Number :</p>
+                                                    <span t-field="equipment.phone"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.mobile" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Mobile:</p>
+                                                    <span t-field="equipment.mobile"/>
+                                                </h6>
+                                            </div>
+                                            <div t-if="equipment.email" style="padding-top:10px;">
+                                                <h6>
+                                                    <p style="font-weight:bold;display:inline">Email:</p>
+                                                    <span t-field="equipment.email"/>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="protocol">
+                                    <br/>
+                                    <div class="row">
+                                        <t t-call="portal.portal_table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-left">Serial No</th>
+                                                    <th class="text-left">Customer</th>
+                                                    <th class="text-left">Order Date</th>
+                                                    <th class="text-left">Due Date</th>
+                                                    <th class="text-left">Testing Device</th>
+                                                    <th class="text-left">Manufacturer</th>
+                                                    <th class="text-left">Service base</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr t-foreach="equipment_protocols" t-as="protocol">
+                                                    <td>
+                                                        <a t-attf-href="/my/protocol/#{protocol.id}?{{ keep_query() }}">
+                                                            <span t-field="protocol.serial_no"/>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-centre">
+                                                        <span t-field="protocol.customer_id"/>
+                                                    </td>
+                                                    <td class="text-centre">
+                                                        <span t-field="protocol.order_date"/>
+                                                    </td>
+                                                    <td class="text-centre">
+                                                        <span t-field="protocol.date"/>
+                                                    </td>
+                                                    <td class="text-centre">
+                                                        <span t-field="protocol.testing_device"/>
+                                                    </td>
+                                                    <td class="text-centre">
+                                                        <span t-field="protocol.manufacturer_id"/>
+                                                    </td>
+                                                    <td class="text-centre">
+                                                        <span t-field="protocol.equipment_service_id"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+            <div class="mt32">
+                <h4>
+                    <strong>Message and communication history</strong>
+                </h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="equipment"/>
+                    <t t-set="pid" t-value="pid"/>
+                    <t t-set="hash" t-value="hash"/>
+                </t>
+
+            </div>
+        </t>
+
+    </template>
+    <!-- ################### Protocol ############################ -->
+
+    <template id="portal_my_protocols" name="My Protocols">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Protocols</t>
+            </t>
+            <t t-if="not protocols">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no protocols.
+                </div>
+            </t>
+            <t t-if="grouped_protocols">
+                <div id='protocol_box'>
+                <t t-call="portal.portal_table">
+
+                        <thead>
+                              <tr t-attf-class="{{'thead-light' if groupby in ['equipment'] else ''}}">
+                                <th></th>
+                                <th class="text-left">Equipment Name</th>
+                                <th class="text-center">Serial No</th>
+                                <th class="text-center">Test base</th>
+                                <th class="text-center">Order Date</th>
+                                <th class="text-center">Due Date</th>
+                                <th class="text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <t t-foreach="grouped_protocols" t-as="protocols">
+                                 <tr  class="groupbyequipment" t-if="groupby == 'equipment'" style="color: #495057;
+  background-color: #e9ecef;
+  border-color: #dee2e6;">
+                                    <td>
+                                        <span t-att-data-equipment_id="protocols[0].sudo().equipment_id.id" />
+                                  </td>
+                                <td>
+                                    <em class="font-weight-normal text-muted">
+                                        <span t-field="protocols[0].sudo().equipment_id"/>
+                                        for protocols:
+                                    </em>
+                                    <span t-field="protocols[0].sudo().equipment_id.name"/>
+                                </td>
+                                     <td></td>
+                                     <td></td>
+                                     <td></td>
+                                     <td></td>
+                                     <td></td>
+
+                                 </tr>
+                            <tr t-foreach="protocols" t-as="protocol">
+                                <td
+
+                                >
+                                    <span t-att-data-record="protocol.id" t-att-data-equipment_id="protocol.sudo().equipment_id.id" t-att-data-report="true if ((protocol.mail_activity_id and (protocol.equipment_test_type == 'el_test' or protocol.equipment_test_type in ['maintenance', 'calibration_ei'] or protocol.equipment_test_type == 'uvv' or protocol.equipment_test_type == 'routine_test')) or protocol.maintenance_request_id ) else false"
+
+                                    />
+                                  </td>
+                                <td class="text-left">
+                                     <a t-attf-href="/my/protocol/#{protocol.id}?{{ keep_query() }}">
+                                     <t t-if="protocol.equipment_id">
+                                        <span t-field="protocol.equipment_id.name"/>
+                                    </t>
+                                     </a>
+                                </td>
+                                <td class="text-center">
+                                        <span t-field="protocol.serial_no"/>
+                                </td>
+                                <td class="text-center">
+                                     <span t-field="protocol.equipment_test_type"/>
+
+                                </td>
+
+                                <td class="text-center">
+                                    <span t-field="protocol.order_date"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="protocol.date"/>
+                                </td>
+                                <td class="text-center">
+                                    <t t-if="protocol.is_downloaded"><strong>Downloaded</strong></t>
+                                </td>
+                            </tr>
+                             </t>
+                        </tbody>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_protocol" name="My Protocol">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <small class="text-muted">protocol -</small>
+                        <span t-field="protocol.name"/>
+                        <span class="float-right">
+                            <t t-if="protocol.mail_activity_id and protocol.equipment_test_type == 'el_test'">
+                                <a t-attf-href="/protocol/report/#{protocol.id}?type=protocol" target="new" style="color:#FFFFFF !important;" role="button"
+                                   class="btn btn-sm btn-secondary">
+                                    <span class="fa fa-file-text" role="img" aria-label="Protocol Report (PDF)"
+                                          title="Protocol Report (PDF)"/>
+                                    <span>Equipment Protocol</span>
+                                </a>
+                            </t>
+                            <t t-if="protocol.mail_activity_id and protocol.equipment_test_type == 'maintenance'">
+                                 <a t-attf-href="/protocol/report/#{protocol.id}?type=maintenance" target="new" style="color:#FFFFFF !important;" role="button"
+                                   class="btn btn-sm btn-secondary">
+                                    <span class="fa fa-file-text-o" role="img" aria-label="Protocol Maintenance Report (PDF)"
+                                          title="Protocol Maintenance Report (PDF)"/>
+                                    <span>Equipment Protocol Maintenance</span>
+                                </a>
+                            </t>
+                            <t t-if="protocol.maintenance_request_id">
+                                 <a t-attf-href="/protocol/report/#{protocol.id}?type=prot" target="new" style="color:#FFFFFF !important;" role="button"
+                                   class="btn btn-sm btn-secondary">
+                                    <span class="fa fa-file" role="img" aria-label="Protocol Repair Prot Report (PDF)"
+                                          title="Protocol Repair Prot Report (PDF)"/>
+                                    <span>Equipment Protocol Repair Prot</span>
+                                </a>
+                            </t>
+                             <t t-if="protocol.mail_activity_id and protocol.equipment_test_type == 'calibration_ei'">
+                                 <a t-attf-href="/protocol/report/#{protocol.id}?type=calibration" target="new" style="color:#FFFFFF !important;" role="button"
+                                   class="btn btn-sm btn-secondary">
+                                    <span class="fa fa-file-text-o" role="img" aria-label="Eichnachweis Report (PDF)"
+                                          title="Protocol Maintenance Report (PDF)"/>
+                                    <span>Eichnachweis</span>
+                                </a>
+                            </t>
+                              <t t-if="protocol.mail_activity_id and protocol.equipment_test_type == 'uvv' and protocol.equipment_id.category_id.id == %(equipment_hebebuhne)d">
+                                 <a t-attf-href="/protocol/report/#{protocol.id}?type=uvv_hebebuhne" target="new" style="color:#FFFFFF !important;" role="button"
+                                   class="btn btn-sm btn-secondary">
+                                    <span class="fa fa-file-text-o" role="img" aria-label="Betriebssicherheitsprüfung Protocol Report (PDF)"
+                                          title="Protocol Maintenance Report (PDF)"/>
+                                    <span>Betriebssicherheitsprüfung Protocol</span>
+                                </a>
+                            </t>
+                             <t t-if="protocol.mail_activity_id and protocol.equipment_test_type == 'uvv' and protocol.equipment_id.category_id.id == %(equipment_tore)d">
+                                 <a t-attf-href="/protocol/report/#{protocol.id}?type=uvv_tore" target="new" style="color:#FFFFFF !important;" role="button"
+                                   class="btn btn-sm btn-secondary">
+                                    <span class="fa fa-file-text-o" role="img" aria-label="Betriebssicherheitsprüfung Protocol Report (PDF)"
+                                          title="Protocol Maintenance Report (PDF)"/>
+                                    <span>Betriebssicherheitsprüfung Protocol</span>
+                                </a>
+                            </t>
+                             <t t-if="protocol.mail_activity_id and protocol.equipment_test_type == 'routine_test' and protocol.equipment_id.category_id.id == %(equipment_bremsprufstand)d">
+                                 <a t-attf-href="/protocol/report/#{protocol.id}?type=routine_test" target="new" style="color:#FFFFFF !important;" role="button"
+                                   class="btn btn-sm btn-secondary">
+                                    <span class="fa fa-file-text-o" role="img" aria-label="Stückprüfung Protocol Report (PDF)"
+                                          title="Protocol Maintenance Report (PDF)"/>
+                                    <span>Stückprüfung Protocol</span>
+                                </a>
+                            </t>
+                        </span>
+                    </h5>
+                </t>
+                <t t-set="card_body">
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-2 mb-md-0">
+                            <div t-if="protocol.equipment_id" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Equipment:</p>
+                                    <span t-field="protocol.equipment_id.name"/>
+                                </h6>
+                            </div>
+                                <div t-if="protocol.serial_no" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Serial No:</p>
+                                    <span t-field="protocol.serial_no"/>
+                                </h6>
+                            </div>
+                            <div t-if="protocol.equipment_test_type" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Test strain:</p>
+                                    <span t-field="protocol.equipment_test_type"/>
+                                </h6>
+                            </div>
+                            <div t-if="protocol.date" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Due Date:</p>
+                                    <span t-field="protocol.date"/>
+                                </h6>
+                            </div>
+                            <div t-if="protocol.order_date" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Order Date:</p>
+                                    <span t-field="protocol.order_date"/>
+                                </h6>
+                            </div>
+                            <div t-if="protocol.manufacturer_id" style="padding-top:10px;">
+                                <h6>
+                                    <p style="font-weight:bold;display:inline">Manufacturer:</p>
+                                    <span t-field="protocol.manufacturer_id.name"/>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+            <div class="mt32">
+                <h4>
+                    <strong>Message and communication history</strong>
+                </h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="protocol"/>
+                    <t t-set="pid" t-value="pid"/>
+                    <t t-set="hash" t-value="hash"/>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

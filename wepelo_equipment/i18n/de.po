@@ -1,0 +1,3326 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* wepelo_equipment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-30 09:58+0000\n"
+"PO-Revision-Date: 2021-03-30 09:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/mail_activity-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/mail_activity-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/mail_activity.py:0
+#: code:addons/wepelo_equipment/models/mail_activity.py:0
+#, python-format
+msgid "%s Completed (originally assigned to %s)"
+msgstr "%s Completed (originally assigned to %s)"
+
+#. module: wepelo_equipment
+#: model:ir.actions.report,print_report_name:wepelo_equipment.equipment_strichcode
+#: model:ir.actions.report,print_report_name:wepelo_equipment.wepelo_equipment_protocol_rep
+#: model:ir.actions.report,print_report_name:wepelo_equipment.wepelo_equipment_protocol_rep_prot
+msgid "((object.name or '').replace('/','')+'.pdf')"
+msgstr "((object.name or '').replace('/','')+'.pdf')"
+
+#. module: wepelo_equipment
+#: model:ir.actions.report,print_report_name:wepelo_equipment.wepelo_equipment_protocol
+#: model:ir.actions.report,print_report_name:wepelo_equipment.wepelo_equipment_protocol_maintenance
+msgid "(object._get_report_filename())"
+msgstr "(object._get_report_filename())"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__month_late
+msgid "< 1 Months Late"
+msgstr "< 1 Monat Verspätung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__month_less
+msgid "< 3 Months Before Final Date"
+msgstr "< 3 Monate vor Endtermin"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid ""
+"<i class=\"fa fa-check\"/>\n"
+"                                            Save"
+msgstr ""
+"<i class=\"fa fa-check\"/>\n"
+"                                            Speichern"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid ""
+"<i class=\"fa fa-check\"/>\n"
+"                                            Schedule"
+msgstr ""
+"<i class=\"fa fa-check\"/>\n"
+"                                            Speichern"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid ""
+"<i class=\"fa fa-close\"/>\n"
+"                                            Close"
+msgstr ""
+"<i class=\"fa fa-close\"/>\n"
+"                                            Schließen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "<small class=\"text-muted\">equipment -</small>"
+msgstr "<small class=\"text-muted\">Inventar -</small>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "<small class=\"text-muted\">protocol -</small>"
+msgstr "<small class=\"text-muted\">Protokoll -</small>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid ""
+"<span class=\"fa fa- fa-wrench\" role=\"img\" aria-label=\"Create Maintenance Request\" title=\"Create Maintenance Request\"/>\n"
+"                                <span>Create Maintenance Request</span>"
+msgstr ""
+"<span class=\"fa fa- fa-wrench\" role=\"img\" aria-label=\"Create Maintenance Request\" title=\"Create Maintenance Request\"/>\n"
+"                                <span>Reparaturanfrage stellen</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid ""
+"<span class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Schedule activity\" title=\"Schedule activity\"/>\n"
+"                                <span>Schedule activity</span>"
+msgstr ""
+"<span class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Schedule activity\" title=\"Schedule activity\"/>\n"
+"                                <span>Aktivität planen</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid ""
+"<span class=\"fa fa-file\" role=\"img\" aria-label=\"Protocol Repair Prot Report (PDF)\" title=\"Protocol Repair Prot Report (PDF)\"/>\n"
+"                                    <span>Equipment Protocol Repair Prot</span>"
+msgstr ""
+"<span class=\"fa fa-file\" role=\"img\" aria-label=\"Protocol Repair Prot Report (PDF)\" title=\"Protocol Repair Prot Report (PDF)\"/>\n"
+"                                    <span>Reparaturprotokoll</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid ""
+"<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Protocol Report (PDF)\" title=\"Protocol Report (PDF)\"/>\n"
+"                                    <span>Equipment Protocol</span>"
+msgstr ""
+"<span class=\"fa fa-file-text\" role=\"img\" aria-label=\"Protocol Report (PDF)\" title=\"Protocol Report (PDF)\"/>\n"
+"                                    <span>Elektrisches Protokoll</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid ""
+"<span class=\"fa fa-file-text-o\" role=\"img\" aria-label=\"Protocol Maintenance Report (PDF)\" title=\"Protocol Maintenance Report (PDF)\"/>\n"
+"                                    <span>Equipment Protocol Maintenance</span>"
+msgstr ""
+"<span class=\"fa fa-file-text-o\" role=\"img\" aria-label=\"Protocol Maintenance Report (PDF)\" title=\"Protocol Maintenance Report (PDF)\"/>\n"
+"                                    <span>Wartungsprotokoll</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid ""
+"<span class=\"font-size:14px;\"><strong>Date of Completed "
+"Maintenance:</strong></span>"
+msgstr ""
+"<span class=\"font-size:14px;\"><strong>Datum der abgeschlossenen "
+"Wartung:</strong></span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid ""
+"<span class=\"font-size:14px;\"><strong>Maintenance-"
+"Performing:</strong></span>"
+msgstr ""
+"<span class=\"font-size:14px;\"><strong>Wartungsdurchführender:</strong></span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid ""
+"<span class=\"font-size:14px;\"><strong>Next Maintenance on (Maintenance "
+"Period 1/2 Year):</strong></span>"
+msgstr ""
+"<span class=\"font-size:14px;\"><strong>Nächste Wartung am (Wartungsperiode "
+"1/2 Jahr):</strong></span>"
+
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_request_view_form_inherit_wepelo
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.mail_activity_edit_wizard
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "<span class=\"ml8\">hours</span>"
+msgstr "<span class=\"ml8\">Stunden</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"font-size:14px;\"><strong>Caution:</strong></span>"
+msgstr "<span style=\"font-size:14px;\"><strong>Achtung:</strong></span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"font-size:14px;\"><strong>Device No:</strong></span>"
+msgstr "<span style=\"font-size:14px;\"><strong>Geräte Nr:</strong></span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"font-size:14px;\"><strong>Device Type:</strong></span>"
+msgstr "<span style=\"font-size:14px;\"><strong>Gerätetyp:</strong></span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid ""
+"<span style=\"font-size:14px;\"><strong>Maintenance by "
+"Company:</strong></span>"
+msgstr ""
+"<span style=\"font-size:14px;\"><strong>Wartung durch "
+"Unternehmen:</strong></span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"font-size:14px;\"><strong>Operator:</strong></span>"
+msgstr "<span style=\"font-size:14px;\"><strong>Kunde:</strong></span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"font-size:14px;\"><strong>Remarks:</strong></span>"
+msgstr "<span style=\"font-size:14px;\"><strong>Bemerkungen:</strong></span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"font-size:14px;\">Infralyt Smart</span>"
+msgstr "<span style=\"font-size:14px;\">Infralyt Smart</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"font-size:14px;\">Opacilyt 1030</span>"
+msgstr "<span style=\"font-size:14px;\">Opacilyt 1030</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid ""
+"<span style=\"font-size: 16px;\">The proof of maintenance corresponds to the"
+" requirements of 6 paragraph 2 of the calibration regulations. It is to be "
+"kept for 10 years (from the year of issue)</span>"
+msgstr ""
+"<span style=\"font-size:16px;\">Der Wartungsnachweis entspricht den "
+"Anforderungen von Paragraph 6 Absatz 2 der Eichordnung. Er ist 10 Jahre lang"
+" aufzubewahren (ab dem Jahr der Ausstellung)</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid ""
+"<span style=\"font-size: 16px;\">The specifications of the measuring device "
+"manufacturer in the operating instructions for maintenance are the basis for"
+" the maintenance work</span>"
+msgstr ""
+"<span style=\"font-size:16px;\">Grundlage für die Wartungsarbeiten sind die "
+"Angaben des Messgeräteherstellers in der Betriebsanleitung zur "
+"Wartung</span>"
+
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid ""
+"<span style=\"font-size: 15px;\">The validity of the calibration expires "
+"prematurely if the main stamp or safety stamp is damaged or removed</span>"
+msgstr ""
+"<span style=\"font-size:15px;\">Die Gültigkeit der Kalibrierung erlischt "
+"vorzeitig, wenn der Hauptstempel oder Sicherheitsstempel beschädigt oder "
+"entfernt wird</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"margin-left:2%;\">Bottle No:</span><span class=\"ml4\"/>"
+msgstr "<span style=\"margin-left:2%;\">Flaschen Nr:</span><span class=\"ml4\"/>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"margin-left:2%;\">Certificate No:</span><span class=\"ml4\"/>"
+msgstr "<span style=\"margin-top:10px;\">Zertifikat Nr:</span><span class=\"ml4\"/>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span style=\"margin-left:2%;\">Serial No:</span>"
+msgstr "<span style=\"margin-left:2%;\">Serien Nr:</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "<span>DGUV V3</span>"
+msgstr "<span>DGUV V3</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<span>Infralyt Smart</span>"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "<span>Maintenance</span>"
+msgstr "<span>Wartung</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<span>Opacylit 1030</span>"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span class=\"text-center\">Date</span></strong>"
+msgstr "<strong><span class=\"text-center\">Datum</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<strong><span class=\"text-center\">Name</span></strong>"
+msgstr "<strong><span class=\"text-center\">Name</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<strong><span class=\"text-center\">Signature</span></strong>"
+msgstr "<strong><span class=\"text-center\">Unterschrift</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span class=\"text-center\">Tester</span></strong>"
+msgstr "<strong><span class=\"text-center\">Prüfer Name</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid ""
+"<strong><span class=\"text-center\">Unterschrift Bearbeiter:</span></strong>"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Equipment Kategorie:</span></strong>"
+msgstr "<strong><span>Inventarkategorie:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Equipment Testing:</span></strong>"
+msgstr "<strong><span>Geräteprüfung:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Evaluation:</span></strong>"
+msgstr "<strong><span>Beurteilung:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Frequency:</span></strong>"
+msgstr "<strong><span>Frequenz:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Functional Test:</span></strong>"
+msgstr "<strong><span>Funktionstest:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Manufacturer:</span></strong>"
+msgstr "<strong><span>Hersteller:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Protection Class:</span></strong>"
+msgstr "<strong><span>Schutzklasse</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Readings:</span></strong>"
+msgstr "<strong><span>Messwerte:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Remarks:</span></strong>"
+msgstr "<strong><span>Bemerkungen:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>S/N:</span></strong>"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Serial Number:</span></strong>"
+msgstr "<strong><span>Seriennummer:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Testing Device:</span></strong>"
+msgstr "<strong>Testgerät: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Type:</span></strong>"
+msgstr "<strong><span>Typ:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Visual Inspection:</span></strong>"
+msgstr "<strong><span>Sichtprüfung:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong><span>Voltage:</span></strong>"
+msgstr "<strong><span>Spannung:</span></strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Bearbeiter: </strong>"
+msgstr "<strong>Bearbeiter: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Befund durch Bearbeiter: </strong>"
+msgstr "<strong>Befund durch Bearbeiter: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "<strong>Bottle No: </strong>"
+msgstr "<strong>Flaschen-Nr: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<strong>C<sub>3</sub> H<sub>8</sub> (ppm)</strong>"
+msgstr "<strong>C<sub>3</sub> H<sub>8</sub> (ppm)</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<strong>CO (vol %)</strong>"
+msgstr "<strong>CO (vol %)</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<strong>CO<sub>2</sub> (vol %)</strong>"
+msgstr "<strong>CO<sub>2</sub> (vol %)</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "<strong>Certificate No: </strong>"
+msgstr "<strong>Zertifikat Nr: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong>Contractor: </strong>"
+msgstr "<strong>Auftragnehmer: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_eichnachweis_protocol
+msgid "<strong>Customer: </strong>"
+msgstr "<strong>Kunde: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong>Due Date: </strong>"
+msgstr "<strong>Auftragsdatum: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Eingang: </strong>"
+msgstr "<strong>Eingang: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Fertig: </strong>"
+msgstr "<strong>Fertig: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "<strong>Information about the device:</strong>"
+msgstr "<strong>Informationen zum Gerät:</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Ja</strong>"
+msgstr "<strong>Ja</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Kunde: </strong>"
+msgstr "<strong>Kunde: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "<strong>Message and communication history</strong>"
+msgstr "<strong>Nachrichten- und Kommunikationshistorie</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Nein</strong>"
+msgstr "<strong>Nein</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "<strong>Recommended Activities</strong>"
+msgstr "<strong>Empfohlene Aktivitäten</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Reparatur: </strong>"
+msgstr "<strong>Reparatur: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "<strong>Serial No: </strong>"
+msgstr "<strong>Serien-Nr: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Seriennummer: </strong>"
+msgstr "<strong>Seriennummer: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<strong>Test Gas Concentration</strong>"
+msgstr "<strong>Testgas-Konzentration</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>Typ: </strong>"
+msgstr "<strong>Typ: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_eichnachweis_protocol
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "<strong>Type: </strong>"
+msgstr "<strong>Typ: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<strong>Value Displayed After Adjustment</strong>"
+msgstr "<strong>Angezeigter Wert nach der Justierung</strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>angegebner Fehler: </strong>"
+msgstr "<strong>angegebener Fehler: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>durch PI/Region: </strong>"
+msgstr "<strong>durch PI/Region: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>liegt ein Garantie fall vor: </strong>"
+msgstr "<strong>liegt ein Garantie fall vor: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "<strong>sonstige Bemerkungen: </strong>"
+msgstr "<strong>sonstige Bemerkungen: </strong>"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__month_more
+msgid "> 3 Months Before Final Date"
+msgstr "> 3 Monate vor Endtermin"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.planing_action_from_equipment_form
+msgid "AKTIVITÄTEN"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_needaction
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__active
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_mail_activity_action
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__activity_ids
+msgid "Activities"
+msgstr "Aktivitäten"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__activity_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_graph
+msgid "Activity"
+msgstr "Aktivität"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Aktivität Ausnahme Dekoration"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_state
+msgid "Activity State"
+msgstr "Status der Aktivität"
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_mail_activity_type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__activity_type_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+msgid "Activity Type"
+msgstr "Aktivitätstyp"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Activity Type: <span style=\"color:red;\">*</span>"
+msgstr "Aktivitätstyp: <span style=\"color:red;\">*</span>"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__schedule_activity_type_ids
+msgid "Activity Types"
+msgstr ""
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Activity type : "
+msgstr "Aktivitätstyp: "
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_equipment_service_action
+msgid "Add a Service strain"
+msgstr "Hinzufügen eines Geräteservices"
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_wepelo_historie_action
+msgid "Add a Equipment history"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_equipment_test_action
+msgid "Add a Test Equipment"
+msgstr "Hinzufügen eines Prüfgeräts"
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_equipment_customer_action
+msgid "Add a new Customer"
+msgstr "Einen neuen Kunden hinzufügen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_equipment_protocol_action
+msgid "Add a new Equipment Protocol"
+msgstr "Ein neues Geräteprotokoll hinzufügen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_equipment_types_action
+msgid "Add a new Equipment Types"
+msgstr "Hinzufügen eines neuen Gerätetyps"
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_equipment_manufacturer_action
+msgid "Add a new Manufacturer"
+msgstr "Einen neuen Hersteller hinzufügen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_test_equipment_device_action
+msgid "Add a new Test Equipment"
+msgstr "Neues Prüfmittel hinzufügen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.actions.act_window,help:wepelo_equipment.wepelo_equipment_vendor_action
+msgid "Add a new Vendor"
+msgstr "Einen neuen Lieferanten hinzufügen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__additive
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__additive
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_customer_view_form
+msgid "Additive"
+msgstr "Zusatz"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__type
+msgid "Address Type"
+msgstr "Adressart"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_view_form_inherit_wepelo
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Address/Contact Details"
+msgstr "Adresse/Kontaktdaten"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "All"
+msgstr "Alle"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__cables_hose_connections
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__cables_hose_connections
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__cables_hose_connections
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "All cables and hose connections checked for tight fit"
+msgstr "Alle Kabel und Schlauchverbindungen auf festen Sitz geprüft"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Alle Kabel und Schlauchverbindungen auf festen Sitz geprüft"
+msgstr "Alle Kabel und Schlauchverbindungen auf festen Sitz geprüft"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "April"
+msgstr "April"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Assigned"
+msgstr "Zuweisungsdatum"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__assign_date
+msgid "Assigned Date"
+msgstr "Zugeordnetes Datum"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Assigned Date:"
+msgstr "Zugeordnetes Datum:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Assigned To:"
+msgstr "Zugeordnet zu:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_attachment_count
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_attachment_count
+msgid "Attachment Count"
+msgstr "Anzahl der Anhänge"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__outgoing_date
+msgid "Ausgangsdatum"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__planning__basic_plan
+msgid "Basic Planning"
+msgstr "Grobplanung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__commment
+msgid "Bemerkung"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__description
+msgid "Beschreibung Anmerkungen"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "Beschreibung:"
+msgstr ""
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: model:mail.activity.type,name:wepelo_equipment.mail_activity_data_uvv
+#, python-format
+msgid "Betriebssicherheitsprüfung"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__gas_bottle_no
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__gas_bottle_no
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__gas_bottle_no
+msgid "Bottle No"
+msgstr "Flaschen Nr"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "By PI/Region :"
+msgstr "Nach PI/Region:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "By PI/Region:"
+msgstr "Nach PI/Region:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__res_partner__type__calibration_service
+msgid "Calibration Service"
+msgstr "Kalibrierungs-Service"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.mail_activity_edit_wizard
+msgid "Cancel"
+msgstr "Stornieren"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__category_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_map
+#, python-format
+msgid "Category"
+msgstr "Inventarkategorie"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Category:"
+msgstr "Inventarkategorie:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__gas_certificate_no
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__gas_certificate_no
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__gas_certificate_no
+msgid "Certificate No"
+msgstr "Zertifikat Nr."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__city
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__customer_city
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__city
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_map
+msgid "City"
+msgstr "Stadt"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "City:"
+msgstr "Stadt:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__coarse_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__coarse_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__coarse_filter
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Coarse filter removed and cleaned"
+msgstr "Grobfilter entfernt und gereinigt"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__color
+msgid "Color Index"
+msgstr "Farbkennzeichnung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__contact_person
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__contact_person
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__contact_person
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__contact_person
+msgid "Contact Person"
+msgstr "Kontaktperson"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Contact Person:"
+msgstr "Kontaktperson:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__contractor_id
+msgid "Contractor"
+msgstr "Auftragnehmer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__cost
+msgid "Cost"
+msgstr "Kosten"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_request_view_form_inherit_wepelo
+msgid "Costs"
+msgstr "Kosten"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Create Maintenance Request"
+msgstr "Reparaturanfrage stellen"
+
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__create_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__create_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__create_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test__create_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types__create_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__create_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__create_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__create_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__create_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__create_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test__create_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types__create_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__create_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__create_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__maintenance_open_count
+msgid "Current Maintenance"
+msgstr "Derzeitige Wartung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__customer_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__customer_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__customer_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__customer_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_view_search_wepelo
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_search
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_map
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_res_customer_search_view
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_view_form_inherit_wepelo
+msgid "Customer Internal Designation"
+msgstr "Kunde Interne Bezeichnung"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Customer:"
+msgstr "Kunde:"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_equipment_customer_action
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__customer_ids
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_equipment_customer
+msgid "Customers"
+msgstr "Kunden"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test__cycle_duration
+msgid "Cycle Duration"
+msgstr "Dauer Zyklus"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: model:mail.activity.type,name:wepelo_equipment.mail_activity_data_el_test
+#, python-format
+msgid "DGUV V3"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_history__pipeline_status__status2
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__maintenance_equipment__pipeline_status__status2
+msgid "Data"
+msgstr "Daten"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_test_equipment_device_view_form
+msgid "Data test gas"
+msgstr "Daten Prüfgas"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__effective_date
+msgid ""
+"Date at which the equipment became effective. This date will be used to "
+"compute the Mean Time Between Failure."
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__date_action
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__date_action
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__date_action
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__date_action
+msgid "Date current action"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__next_action_date
+msgid "Date of the next preventive maintenance"
+msgstr "Datum der nächsten vorbeugenden Wartung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_mail_activity__schedule_date
+msgid "Date the detail activity plans the equipment."
+msgstr "Das Datum der detaillierten Aktivitätsplanung des Geräts."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__period
+msgid "Days between each preventive maintenance"
+msgstr "Tage zwischen jeder präventiven Wartung"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+msgid "Deadline"
+msgstr ""
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "December"
+msgstr "Dezember"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__delivery_address
+msgid "Delivery Address"
+msgstr "Lieferadresse"
+
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Description:"
+msgstr "Beschreibung:"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/mail_activity-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/mail_activity.py:0
+#: model:ir.actions.server,name:wepelo_equipment.activity_edit_action_server
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__planning__detail_plan
+#, python-format
+msgid "Detail Planning"
+msgstr "Feinplanung"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_customer_view_form_inherit_wepelo
+msgid "Deutschland"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__x_device_typ
+msgid "Device Typ"
+msgstr "Gerätetyp"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_service__exhaust_measuring_device__diesel
+msgid "Diesel"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__digital_signature
+msgid "Digital Signature"
+msgstr "Unterschrift"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.res_users_view_form_inherit_sign_setting
+msgid "Digital Signatures"
+msgstr "Unterschrift"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__display_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__display_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__display_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__display_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types__display_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__display_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__display_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__res_model_id
+msgid "Document Model"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Document Name:"
+msgstr "Dokumentenname:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__date_deadline
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "Due Date"
+msgstr "Fälligkeitsdatum"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Due Date:"
+msgstr "Fälligkeitsdatum:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Due Date: <span style=\"color:red;\">*</span>"
+msgstr "Fälligkeitsdatum: <span style=\"color:red;\">*</span>"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Due on : "
+msgstr "Fälligkeit: "
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__duration
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__duration
+msgid "Duration"
+msgstr "Dauer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_mail_activity__duration
+msgid "Duration in hours."
+msgstr "Dauer in Stunden."
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Duration:"
+msgstr "Dauer:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "EL. Test"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__effective_date
+msgid "Effective Date"
+msgstr "Anschaffungsdatum"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Effective Date:"
+msgstr "Effektives Datum:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__eichamt
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__eichamt
+msgid "Eichamt"
+msgstr ""
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_view_form_inherit_wepelo
+#: model:mail.activity.type,name:wepelo_equipment.mail_activity_data_calibration_ei
+#, python-format
+msgid "Eichung"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__naechste_eichung
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__naechste_eichung
+msgid "Eichung bis"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__costs_contractor
+msgid "Eigene Kosten"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__receipt_date
+msgid "Eingangsdatum"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "Electrical Testing According to DIN VDE 0701-0702 (DGUV Regulation 3)"
+msgstr "Elektrische Prüfung nach DIN VDE 0701-0702 (DGUV Vorschrift 3)"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__email
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__email
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Email CC:"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_request_view_form_inherit_wepelo
+msgid "Email cc"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Email:"
+msgstr "E-Mail:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_home
+msgid "Equipment Master -"
+msgstr "Equipment Master -"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__equipment_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__equipment_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+#, python-format
+msgid "Equipment"
+msgstr "Inventarbezeichnung"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__equipment_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__equipment_count
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__equipment_count
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_home
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.res_partner_view_equipment_buttons
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_search
+#, python-format
+msgid "Equipment"
+msgstr "Inventar"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+msgid "Equipment Activity"
+msgstr "Inventar Aktivität"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__category_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__category_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+msgid "Equipment Category"
+msgstr "Inventarkategorie"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Equipment Category:"
+msgstr "Inventarkategorie:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__customer
+msgid "Equipment Customer"
+msgstr "Inventar Kunde"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_wepelo_historie_action
+msgid "Equipment Historie"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_equipment_mail_activity
+msgid "Equipment Mail Activity"
+msgstr "Inventar Mail-Aktivität"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+#, python-format
+msgid "Equipment Name"
+msgstr "Inventarbezeichnung"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_equipment_protocol_action
+#: model:ir.model,name:wepelo_equipment.model_equipment_protocol
+msgid "Equipment Protocol"
+msgstr "Protokoll"
+
+#. module: wepelo_equipment
+#: model:ir.actions.report,name:wepelo_equipment.wepelo_equipment_protocol
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+msgid "Equipment Protocol"
+msgstr "Elektrisches Protokoll"
+
+#. module: wepelo_equipment
+#: model:ir.actions.report,name:wepelo_equipment.wepelo_equipment_protocol_maintenance
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+msgid "Equipment Protocol Maintenance"
+msgstr "Wartungsprotokoll"
+
+#. module: wepelo_equipment
+#: model:ir.actions.report,name:wepelo_equipment.wepelo_equipment_protocol_rep
+msgid "Equipment Protocol Repair"
+msgstr "Reparaturprotokoll"
+
+#. module: wepelo_equipment
+#: model:ir.actions.report,name:wepelo_equipment.wepelo_equipment_protocol_rep_prot
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+msgid "Equipment Protocol Repair Prot"
+msgstr "Reparaturprotokoll"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_equipment_service_action
+#: model:ir.model,name:wepelo_equipment.model_equipment_service
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__equipment_service_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__equipment_service_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__equipment_service_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__equipment_service_id
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_equipment_service
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_service_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_service_view_tree
+msgid "Service strain"
+msgstr "Objekt"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Service strain:"
+msgstr "Servicestamm:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__equipment_service_id
+msgid "Equipment System"
+msgstr "Servicestamm"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__equipment_test_type_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__equipment_test_type_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_type__equipment_test_type_id
+msgid "Equipment Test"
+msgstr "Gerätetest"
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_equipment_types
+msgid "Equipment Types"
+msgstr "Gerätetypen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Equipment:"
+msgstr "Inventar:"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.hr_equipment_action_from_customer_form
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__equipment_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__equipment_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__equipment_ids
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_layout
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+msgid "Equipments"
+msgstr "Inventar"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__evaluation
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__evaluation
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__evaluation
+msgid "Evaluation"
+msgstr "Evaluierung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__exhaust_measuring_device
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__exhaust_measuring_device
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__exhaust_measuring_device
+msgid "Exhaust Measuring Device"
+msgstr "Abgasmessgerät"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Exhaust Measuring Device Diesel"
+msgstr "Abgasmessgerät Diesel"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Exhaust Measuring Device Petrol"
+msgstr "Abgasmessgerät Benzin"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__exhaust_hose_probe
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__exhaust_hose_probe
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__exhaust_hose_probe
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Exhaust hose and exhaust probe removed and cleaned"
+msgstr "Abgasschlauch und Abgassonde entfernt und gereinigt"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "February"
+msgstr "Februar"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__fine_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__fine_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__fine_filter
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Fine filter replaced"
+msgstr "Feinfilter ausgetauscht"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Finished Test And Generate Protocol"
+msgstr "Test abschließen und Protokoll erzeugen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__x_flaschnum
+msgid "Flaschennummer"
+msgstr "Flaschennummer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_follower_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_follower_ids
+msgid "Followers"
+msgstr "Abonnenten"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_channel_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Abonnenten (Kanäle)"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_partner_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnenten (Partner)"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__frequency_f_in_heart_hz
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__frequency_f_in_heart_hz
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__frequency_f_in_heart_hz
+msgid "Frequency F in heart [Hz]"
+msgstr "Frequenz F in Herz [Hz]"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__functional_control
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__functional_control
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__functional_control
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Function control of the device"
+msgstr "Funktionskontrolle des Geräts"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__functional_test
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__functional_test
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__functional_test
+msgid "Functional Test"
+msgstr "Funktionsprüfung"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+msgid "Group by..."
+msgstr "Gruppierung ..."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__gueltigkeit_eichung
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__gueltigkeit_eichung
+msgid "Gültigkeit in Jahren"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__height
+msgid "Height in cm"
+msgstr "Höhe in cm"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "High"
+msgstr "Hoch"
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_equipment_history
+msgid "Historie des Inventars"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_historie
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_history_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_history_view_tree
+msgid "History"
+msgstr "Historie"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__house_no
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__house_no
+msgid "House Number"
+msgstr "Hausnummer"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "House Number :"
+msgstr "Hausnummer :"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "I<sub>EA </sub>"
+msgstr "I<sub>EA </sub>"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test__id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types__id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__id
+msgid "ID"
+msgstr "ID"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__operator_iea
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__operator_iea
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__operator_iea
+msgid "IEA Operator"
+msgstr "IEA Operator"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__iea_ma
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__iea_ma
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__iea_ma
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "IEA [mA]"
+msgstr "IEA [mA]"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Symbol, um eine Ausnahmeaktivität anzuzeigen."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__message_needaction
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__message_unread
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_protocol__message_needaction
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_protocol__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__message_has_error
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__message_has_sms_error
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_protocol__message_has_error
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_protocol__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Wenn gewählt, ist das Senden einiger Nachrichten fehlgeschlagen."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__inventory_number
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__inventory_number
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+msgid "Inventory Number"
+msgstr "Inventarnummer"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Inventory Number :"
+msgstr "Inventarnummer:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_res_partner__type
+#: model:ir.model.fields,help:wepelo_equipment.field_res_users__type
+msgid ""
+"Invoice & Delivery addresses are used in sales orders. Private addresses are"
+" only visible by authorized users."
+msgstr ""
+"Rechnungs- und Lieferadressen werden in Kundenaufträgen verwendet. Private "
+"Adressen sind nur für autorisierte Benutzer sichtbar."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_is_follower
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_is_follower
+msgid "Is Follower"
+msgstr "Ist ein Abonnent"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "January"
+msgstr "Januar"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "July"
+msgstr "Juli"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "June"
+msgstr "Juni"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: model:mail.activity.type,name:wepelo_equipment.mail_activity_data_calibration
+#, python-format
+msgid "Kalibrierung"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__costs_manufacturer
+msgid "Kosten Hersteller"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__costs_parcel_service
+msgid "Kosten Paketdienstleister"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__ref
+msgid "Kunden-Nummer"
+msgstr "Kunden-Nummer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__ref
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_search
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_res_customer_search_view
+msgid "Kundennummer"
+msgstr "Kundennummer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history____last_update
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity____last_update
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol____last_update
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service____last_update
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test____last_update
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types____last_update
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard____last_update
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type____last_update
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device____last_update
+msgid "Last Modified on"
+msgstr "Letzte Änderung am"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Last Update"
+msgstr "Letzte Aktualisierung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__write_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__write_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__write_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test__write_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types__write_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__write_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__write_uid
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__write_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__write_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__write_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test__write_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types__write_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__write_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__write_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__leak_test_performed
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__leak_test_performed
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__leak_test_performed
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Leak test performed"
+msgstr "Dichtheitsprüfung durchgeführt"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__leak_test_seal
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__leak_test_seal
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__leak_test_seal
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Leak test seal checked for damage"
+msgstr "Dichtung auf Beschädigung geprüft"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_customer-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_customer.py:0
+#, python-format
+msgid "Leider wurde keine Kundennummer angegeben"
+msgstr ""
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_maintenance-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_maintenance.py:0
+#, python-format
+msgid "Leider wurde keine Seriennummer angegeben"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__last_calibration
+msgid "Letzte Kalibrierung"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__location
+msgid "Location"
+msgstr "Lagerort"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Log a note..."
+msgstr "Notiz hinterlassen …"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Log an Activity"
+msgstr "Aktivität erfassen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Low"
+msgstr "Niedrig"
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_mail_activity
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__mail_activity_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__mail_activity_id
+msgid "Mail Activity"
+msgstr "Mail-Aktivität"
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_mail_activity_edit_wizard
+msgid "Mail Activity Edit Wizard"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_schedule_activity_type__mail_activity_type_ids
+msgid "Mail Activity Types"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_main_attachment_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Hauptanhänge"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__maintenance_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__is_maintenance
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Maintenance"
+msgstr "Reparaturen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__maintenance_count
+msgid "Maintenance Count"
+msgstr "Wartung Zähler"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__maintenance_duration
+msgid "Maintenance Duration"
+msgstr "Wartungsdauer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__maintenance_duration
+msgid "Maintenance Duration in hours."
+msgstr "Wartungsdauer in Stunden."
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Wartungsausrüstung"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Maintenance Name : "
+msgstr "Titel Reparaturanfrage: "
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_maintenance_request
+msgid "Maintenance Request"
+msgstr "Reparaturanfrage"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__maintenance_team_id
+msgid "Maintenance Team"
+msgstr "Wartungsteam"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Maintenance Team:"
+msgstr "Wartungsteam:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__maintenance_request_id
+msgid "Maintenance request"
+msgstr "Reparaturanfrage"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__manual_calibration
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__manual_calibration
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__manual_calibration
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Manual Calibration"
+msgstr "Manuelle Kalibrierung"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__manufacturer_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__manufacturer_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__manufacturer_id
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__res_partner__type__manufacturer
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_view_search_wepelo
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_res_partner_search_view
+msgid "Manufacturer"
+msgstr "Hersteller"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Manufacturer:"
+msgstr "Hersteller:"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "March"
+msgstr "März"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Mark as Done"
+msgstr "Als erledigt markieren"
+
+#. module: wepelo_equipment
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_master_data
+msgid "Master Data"
+msgstr "Stammdaten"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "May"
+msgstr "Mai"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__measuring_cell
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__measuring_cell
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__measuring_cell
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Measuring cell cleaned"
+msgstr "Messzelle gereinigt"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__measuring_optics
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__measuring_optics
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__measuring_optics
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Measuring optics checked cleaned"
+msgstr "Messoptik geprüft gereinigt"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_has_error
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_has_error
+msgid "Message Delivery error"
+msgstr "Fehler beim Senden der Nachricht"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_ids
+msgid "Messages"
+msgstr "Nachrichten"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__mobile
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__mobile
+msgid "Mobile"
+msgstr "Mobil"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Mobile:"
+msgstr "Mobil:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__model
+msgid "Model"
+msgstr "Modell"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Model:"
+msgstr "Modell:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__current_date
+msgid "My date"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "MΩ"
+msgstr "MΩ"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test__display_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types__name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__customer_base
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__name
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+msgid "Name"
+msgstr "Name"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__namehist
+msgid "Name History"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_type__new_signature
+msgid "New Signature"
+msgstr "Neue Unterschrift"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Newest"
+msgstr "Neuesten"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Nächste Aktivitätsfrist"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_summary
+msgid "Next Activity Summary"
+msgstr "Zusammenfassung nächste Aktion"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_type_id
+msgid "Next Activity Type"
+msgstr "Nächster Aktivitätstyp"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "None"
+msgstr "Keine"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Normal"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__note
+msgid "Note"
+msgstr "Notiz"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Note:"
+msgstr "Hinweis:"
+
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_needaction_counter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_has_error_counter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_has_error_counter
+msgid "Number of errors"
+msgstr "Anzahl der Fehler"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__message_needaction_counter
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_protocol__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__message_has_error_counter
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_protocol__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Anzahl der Nachrichten mit einem Fehler beim Senden."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__message_unread_counter
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_protocol__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesener Nachrichten"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__test_o2_sensor
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__test_o2_sensor
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_o2_sensor
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "O2 sensor tested"
+msgstr "O2-Sensor geprüft"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "October"
+msgstr "Oktober"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__order_date
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "Order Date"
+msgstr "Bestelldatum"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Order Date:"
+msgstr "Bestelldatum:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__owner_user_id
+msgid "Owner"
+msgstr "Nutzer"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Owner:"
+msgstr "Nutzer:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_res_customer_search_view
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_res_partner_search_view
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_res_vendor_search_view
+msgid "Partner"
+msgstr "Partner"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_service__exhaust_measuring_device__petrol
+msgid "Petrol"
+msgstr "Benzin"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__phone
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__phone
+msgid "Phone Number"
+msgstr "Telefonnummer:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Phone Number :"
+msgstr "Telefonnummer:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__pickup_address
+msgid "Pickup Address"
+msgstr "Abholadresse"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__pipeline_status
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__pipeline_status
+msgid "Pipeline Status Bar"
+msgstr "Pipeline-Statusleiste"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__planing_count
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__planing_count
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.maintenance_equipment_view_planing_buttons
+msgid "Planing"
+msgstr "Planung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__planning
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_activity_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+msgid "Planning"
+msgstr "Planung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__test_equipment_device__x_device_typ__platzhalter
+msgid "Platzhalter"
+msgstr "Platzhalter"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__pre_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__pre_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__pre_filter
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Prefilter removed and cleaned"
+msgstr "Vorfilter entfernt und gereinigt"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Priority:"
+msgstr "Proiorität:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Product Information"
+msgstr "Produktinformationen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Proof of Maintenance For Infralyt Devices"
+msgstr "Wartungsnachweis für Infralyt-Geräte"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Proof of Maintenance For Opacilyt Devices"
+msgstr "Wartungsnachweis für Opacilyt-Geräte"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__protection_class
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__protection_class
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__protection_class
+msgid "Protection Class"
+msgstr "Schutzklasse"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_mail_activity__tested_din_vde_0701_0702__protective_insulation
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_protocol__tested_din_vde_0701_0702__protective_insulation
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__tested_din_vde_0701_0702__protective_insulation
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "Protective Insulation"
+msgstr "Schutzisolierung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_mail_activity__tested_din_vde_0701_0702__protective_line
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_protocol__tested_din_vde_0701_0702__protective_line
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__tested_din_vde_0701_0702__protective_line
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "Protective Line"
+msgstr "Schutzleitung"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.protocol_action_from_customer_form2
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__protocol_count
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__equipment_protocol_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__protocol_count
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__protocol_count
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__protocol_count
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_equipment_protocol
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.maintenance_equipment_view_protocol_buttons
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_home
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.res_partner_view_protocol_buttons2
+msgid "Protocol"
+msgstr "Protokoll"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+msgid "Protocol Name"
+msgstr "Protokollname"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__protocol_number
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__protocol_number
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+msgid "Protocol Number"
+msgstr "Anzahl Protokolle"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.protocol_action_from_euipment_form
+msgid "Protocol_Equipment"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__protocols_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__protocols_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__equipment_protocol_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__equipment_protocol_ids
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_layout
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "Protocols"
+msgstr "Protokolle"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__x_gasc3
+msgid "Prüfgas Konzentration (C3)"
+msgstr "Prüfgas Konzentration (C3)"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__x_gasco
+msgid "Prüfgas Konzentration (CO)"
+msgstr "Prüfgas Konzentration (CO)"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__x_gasco2
+msgid "Prüfgas Konzentration (CO2)"
+msgstr "Prüfgas Konzentration (CO2)"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__qr_code
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__qr_code
+msgid "QR Code"
+msgstr "QR Code"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "R<sub>ISO </sub>"
+msgstr "R<sub>ISO </sub>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "R<sub>PE </sub>"
+msgstr "R<sub>PE </sub>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_rep_prot
+msgid "REPARATURBERICHT"
+msgstr "REPARATURBERICHT"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__operator_riso
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__operator_riso
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__operator_riso
+msgid "RISO Operator"
+msgstr "RISO Operator"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__riso_m
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__riso_m
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__riso_m
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "RISO [MΩ]"
+msgstr "RISO [MΩ]"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__operator_rpe
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__operator_rpe
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__operator_rpe
+msgid "RPE Operator"
+msgstr "RPE Operator"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__rpe
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__rpe
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__rpe
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "RPE [Ω]"
+msgstr "RPE [Ω]"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__invoice_nr
+msgid "Rechnungsnummer"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__rechnungsnr_eichung
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__rechnungsnr_eichung
+msgid "Rechungsnummer"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__remarks
+msgid "Remarks"
+msgstr "Bemerkungen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Repair:"
+msgstr "Reparatur:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__request_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__x_reparatur
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__x_reparatur
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+msgid "Reparatur"
+msgstr "Reparatur"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_request_view_form_inherit_wepelo
+msgid "Reparatur Protokoll"
+msgstr "Reparatur Protokoll"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Reparatur:"
+msgstr "Reparatur:"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: model:mail.activity.type,name:wepelo_equipment.mail_activity_data_repairs
+#, python-format
+msgid "Reparaturen"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Request Date:"
+msgstr "Anfragedatum: "
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_request_view_form_inherit_wepelo
+msgid "Responsible"
+msgstr "Verantwortlich"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__activity_user_id
+msgid "Responsible User"
+msgstr "Verantwortlich"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Responsible:"
+msgstr "Verantwortlich:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__testing_device_sn
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_types__types_sn
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__sn
+msgid "S/N"
+msgstr "S/N"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_has_sms_error
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "SMS Zustellungsfehler"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.mail_activity_edit_wizard
+msgid "Save"
+msgstr "Speichern"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Schedule Activity"
+msgstr "Aktivität planen"
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_schedule_activity_type
+msgid "Schedule Activity Type"
+msgstr "Aktivität planen Typ"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__schedule_date
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__schedule_date
+msgid "Scheduled Date"
+msgstr "Geplantes Datum"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Scheduled Date:"
+msgstr "Geplantes Datum:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__scrap_date
+msgid "Scrap Date"
+msgstr "Ausgeschieden am"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Scrap Date:"
+msgstr "Schrottdatum:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_home
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_search
+msgid "Search"
+msgstr "Suchen"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Search <span class=\"nolabel\"> (in Equipment Name)</span>"
+msgstr "Suche <span class=\"nolabel\"> (im Inventarbezeichnung)</span>"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Search in All"
+msgstr "Alle durchsuchen"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Search in Category"
+msgstr "Suche in Kategorie"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Search in Customer Name"
+msgstr "Suche im Kundennamen"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Search in Customer Ref"
+msgstr "Suche in Kundenref"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Search in Manufacturer"
+msgstr "Suche im Hersteller"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Search in Serial Number"
+msgstr "Suche in Seriennummer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__sensor_type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__sensor_type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__sensor_type
+msgid "Sensor Type"
+msgstr "Sensortyp"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "September"
+msgstr "September"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__serial_no
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "Serial No"
+msgstr "Seriennummer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__sensor_serial
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__sensor_serial
+msgid "Serial No sensor"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Serial No:"
+msgstr "Seriennummer:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__serial_no
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__sensor_serial
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__serial_no
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__serial_no
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+msgid "Serial Number"
+msgstr "Seriennummer"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Serial Number:"
+msgstr "Seriennummer:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Service base"
+msgstr "Servicestamm"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Service base :"
+msgstr "Servicestamm :"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__signature
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__signature
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__signature
+msgid "Signature"
+msgstr "Unterschrift"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Specified Error:"
+msgstr "Spezifizierter Fehler:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_history__pipeline_status__status1
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__maintenance_equipment__pipeline_status__status1
+msgid "Start Production"
+msgstr "Start Produktion"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status basierend auf Aktivitäten\n"
+"Überfällig: Fälligkeitsdatum bereits überschritten\n"
+"Heute: Aktivität besitzt heutiges Datum\n"
+"Geplant: anstehende Aktivitäten."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__street
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__customer_street
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__street
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_map
+msgid "Street"
+msgstr "Straße"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Street:"
+msgstr "Straße:"
+
+#. module: wepelo_equipment
+#: model:ir.actions.report,name:wepelo_equipment.equipment_strichcode
+msgid "Strichcode"
+msgstr "QR-Code"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: model:mail.activity.type,name:wepelo_equipment.mail_activity_data_routine_test
+#, python-format
+msgid "Stückprüfung"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Summary:"
+msgstr "Zusammenfassung:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__sum_lead_time
+msgid "Summe Durchlaufzeit"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__sum_costs
+msgid "Summe Kosten"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__lead_time_contractor
+msgid "Tage Auftragnehmer"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__lead_time_manufacturer
+msgid "Tage Hersteller"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__technician_user_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+msgid "Technician"
+msgstr "Techniker"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_completed
+msgid "Test Completed"
+msgstr "Prüfung abgeschlossen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__equipment_test_type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_test__equipment_test_type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__equipment_test_type
+msgid "Test strain"
+msgstr "Teststamm"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_equipment_test_action
+#: model:ir.model,name:wepelo_equipment.model_equipment_test
+#: model:ir.model,name:wepelo_equipment.model_test_equipment_device
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_service__test_equipment_ids
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_equipment_test
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_test_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_test_view_tree
+msgid "Test Equipment"
+msgstr "Teststamm"
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_test_equipment_device_action
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_test_equipment_device
+msgid "Test Equipment Device"
+msgstr "Testgerätestamm"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Test strain:"
+msgstr "Teststamm:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_equipment_ids
+msgid "Test Equipments"
+msgstr "Test-Ausrüstungen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_fail
+msgid "Test Fail"
+msgstr "Test fehlgeschlagen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_form
+msgid "Test Failed"
+msgstr "Test fehlgeschlagen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__test_device_name
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__test_gas
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__test_gas
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_gas
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__test_device_name
+msgid "Test Gas"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "Test base"
+msgstr "Teststamm"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "Test base:"
+msgstr "Teststamm:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__test_equipment_device__x_device_typ__testgas
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Test gas"
+msgstr "Test gas"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__test_gas_concentration_c3
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__test_gas_concentration_c3
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_gas_concentration_c3
+msgid "Test gas concentration C3 H8 (ppm):"
+msgstr "Prüfgaskonzentration C3 H8 (ppm):"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__test_gas_concentration_co
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__test_gas_concentration_co
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_gas_concentration_co
+msgid "Test gas concentration CO (vol %):"
+msgstr "Prüfgaskonzentration CO (Vol %):"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__test_gas_concentration_co2
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__test_gas_concentration_co2
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_gas_concentration_co2
+msgid "Test gas concentration CO2 (vol %):"
+msgstr "Prüfgaskonzentration CO2 (Vol %):"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__tested_din_vde_0701_0702
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__tested_din_vde_0701_0702
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__tested_din_vde_0701_0702
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "Tested according to DIN VDE 0701-0702 and Protected by"
+msgstr "Geprüft nach DIN VDE 0701-0702 und geschützt durch"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__test_equipment_device_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__testing_device
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__test_equipment_device_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Testing Device"
+msgstr "Testgerät"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__test_calibration_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__test_calibration_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_calibration_filter
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Testing of calibration filters (values see calibration certificate)"
+msgstr "Prüfung von Kalibrierfiltern (Werte siehe Kalibrierschein)"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__test_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__test_filter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__test_filter
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "Testing the filters"
+msgstr "Prüfung der Filter"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_mail_activity__evaluation__correspond_device
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_protocol__evaluation__correspond_device
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__evaluation__correspond_device
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid ""
+"The device corresponds to the recognized rules of electrical engineering."
+msgstr "Das Gerät entspricht den anerkannten Regeln der Elektrotechnik."
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_mail_activity__evaluation__not_correspond_device
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_protocol__evaluation__not_correspond_device
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__evaluation__not_correspond_device
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid ""
+"The device does not corresponds to the recognized rules of electrical "
+"engineering."
+msgstr "Das Gerät entspricht nicht den anerkannten Regeln der Elektrotechnik."
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+msgid "There are no equipments."
+msgstr "Es gibt keine Inventar."
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "There are no protocols."
+msgstr "Es gibt keine Protokolle."
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid "There is a guarantee:"
+msgstr "Es gibt eine Garantie:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_request_view_form_inherit_wepelo
+msgid "Time"
+msgstr "Zeiten"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Title: <span style=\"color:red;\">*</span>"
+msgstr "Titel: <span style=\"color:red;\">*</span>"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__topic
+msgid "Topic"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__equipment_type_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__type
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__equipment_type_id
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_map
+msgid "Type"
+msgstr "Typ"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Typ der Ausnahmeaktivität im Datensatz."
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_equipment_types_action
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_equipment_types
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_tree
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_types_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_types_view_tree
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_test_equipment_device_view_form
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_test_equipment_device_view_tree
+msgid "Types"
+msgstr "Typenstamm"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Unassigned"
+msgstr "Nicht zugewiesen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_unread
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_unread
+msgid "Unread Messages"
+msgstr "Ungelesene Nachrichten"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__message_unread_counter
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Anzahl ungelesener Nachrichten"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__signature
+msgid "Unterschrift Bearbeiter"
+msgstr "Unterschrift Bearbeiter"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Used in location:"
+msgstr "Verwendet vor Ort:"
+
+#. module: wepelo_equipment
+#: model:ir.model,name:wepelo_equipment.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__value_after_adjustment_c3
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__value_after_adjustment_c3
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__value_after_adjustment_c3
+msgid "Value displayed after adjustment C3 H8 (ppm):"
+msgstr "Anzeigewert nach Abgleich C3 H8 (ppm):"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__value_after_adjustment_co
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__value_after_adjustment_co
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__value_after_adjustment_co
+msgid "Value displayed after adjustment CO (vol %):"
+msgstr "Anzeigewert nach Abgleich CO (Vol %):"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__value_after_adjustment_co2
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__value_after_adjustment_co2
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__value_after_adjustment_co2
+msgid "Value displayed after adjustment CO2 (vol %):"
+msgstr "Anzeigewert nach Abgleich CO2 (Vol %):"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__partner_id
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__partner_id
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__res_partner__type__vendor
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_res_vendor_search_view
+msgid "Vendor"
+msgstr "Lieferant"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__partner_ref
+msgid "Vendor Reference"
+msgstr "Lieferantenreferenz"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Vendor:"
+msgstr "Lieferant:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__visual_inspection
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__visual_inspection
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__visual_inspection
+msgid "Visual Inspection"
+msgstr "Sichtprüfung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_mail_activity__voltage_u_in_volts_v
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__voltage_u_in_volts_v
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__voltage_u_in_volts_v
+msgid "Voltage U in volts [V]"
+msgstr "Spannung U in Volt [V]"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid ""
+"Warranty Expiration\n"
+"                                                        Date:"
+msgstr "Ablaufdatum der Garantie:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__warranty_date
+msgid "Warranty Expiration Date"
+msgstr "Ablaufdatum der Garantie"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/.ipynb_checkpoints/wepelo_equipment_system-checkpoint.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: code:addons/wepelo_equipment/models/wepelo_equipment_system.py:0
+#: model:mail.activity.type,name:wepelo_equipment.mail_activity_data_maintenance
+#, python-format
+msgid "Wartung"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__website_message_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__website_message_ids
+msgid "Website Messages"
+msgstr "Website-Nachrichten"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_history__website_message_ids
+#: model:ir.model.fields,help:wepelo_equipment.field_equipment_protocol__website_message_ids
+msgid "Website communication history"
+msgstr "Website-Kommunikationshistorie"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__width
+msgid "Width in cm"
+msgstr "Breite in cm"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "With guarantee"
+msgstr "Mit Garantie"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Without guarantee"
+msgstr "Ohne Garantie"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/models/mail_activity.py:0
+#, python-format
+msgid "You should add Activity Type"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__customer_zip
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_view_map
+msgid "ZIP"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+msgid "ZIP 2"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_test_equipment_device__x_zertnum
+msgid "Zertifikatsnummer"
+msgstr "Zertifikatsnummer"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__zip
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__zip
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__zip
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__zip
+msgid "Zip"
+msgstr "PLZ"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__zip2
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_partner__zip2
+#: model:ir.model.fields,field_description:wepelo_equipment.field_res_users__zip2
+msgid "Zip2"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "Zip:"
+msgstr "PLZ:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "_______"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "_____________"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "___________________________________"
+msgstr "___________________________________"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__x_angegebener_fehler
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__x_angegebener_fehler
+msgid "angegebener Fehler"
+msgstr "angegebener Fehler"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__x_durchPI
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__x_durchPI
+msgid "durch PI/Region"
+msgstr "durch PI/Region"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_search
+msgid "equipment_id"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipments
+msgid "for equipment:"
+msgstr "für Inventar:"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "for protocols:"
+msgstr "für Protokolle:"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_mail_activity__functional_test__i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_mail_activity__visual_inspection__i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_protocol__functional_test__i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_protocol__visual_inspection__i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__functional_test__i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__visual_inspection__i_o
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "i.O"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__letzte_eichung
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__letzte_eichung
+msgid "letzte Eichung"
+msgstr "letzte Eichung"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__x_garantie
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__x_garantie
+msgid "liegt eine Garantie vor"
+msgstr "liegt eine Garantie vor"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "mA"
+msgstr "mA"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_mail_activity__functional_test__n_i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_mail_activity__visual_inspection__n_i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_protocol__functional_test__n_i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__equipment_protocol__visual_inspection__n_i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__functional_test__n_i_o
+#: model:ir.model.fields.selection,name:wepelo_equipment.selection__mail_activity__visual_inspection__n_i_o
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+msgid "n.i.O"
+msgstr "n.i.O"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "sign"
+msgstr "Unterschrift"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__testing_device_name
+msgid "testing_device_name"
+msgstr ""
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity__testing_device_sn
+msgid "testing_device_sn"
+msgstr ""
+
+#. module: maintenance
+#: model:ir.ui.menu,name:maintenance.menu_m_request_calendar
+msgid "Maintenance Calendar"
+msgstr "Reparaturkalender"
+
+#. module: maintenance
+#: model:ir.model.fields,field_description:maintenance.field_maintenance_equipment__maintenance_ids
+#: model:ir.model.fields,field_description:maintenance.field_maintenance_equipment_category__maintenance_ids
+#: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_category_view_form
+#: model:ir.ui.menu,name:maintenance.menu_m_request
+msgid "Maintenance"
+msgstr "Reparaturen"
+
+#. module: maintenance
+#: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_view_form
+msgid "Maintenance"
+msgstr "Reparatur"
+
+#. module: maintenance
+#: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_request_view_form
+#: model:mail.activity.type,name:maintenance.mail_act_maintenance_request
+msgid "Maintenance Request"
+msgstr "Reparaturanfragen"
+
+#. module: maintenance
+#: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_request_view_graph
+#: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_request_view_pivot
+#: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_request_view_tree
+msgid "maintenance Request"
+msgstr "Reparaturanfragen"
+
+#. module: maintenance
+#: model:ir.actions.act_window,name:maintenance.hr_equipment_request_action
+#: model:ir.actions.act_window,name:maintenance.hr_equipment_request_action_cal
+#: model:ir.actions.act_window,name:maintenance.hr_equipment_request_action_from_equipment
+#: model:ir.actions.act_window,name:maintenance.hr_equipment_request_action_link
+#: model:ir.actions.act_window,name:maintenance.hr_equipment_todo_request_action_from_dashboard
+#: model:ir.actions.act_window,name:maintenance.maintenance_request_action_reports
+#: model:ir.ui.menu,name:maintenance.maintenance_request_reporting
+#: model:ir.ui.menu,name:maintenance.menu_m_request_form
+#: model_terms:ir.ui.view,arch_db:maintenance.maintenance_team_kanban
+msgid "Maintenance Requests"
+msgstr "Reparaturanfragen"
+
+#. module: maintenance
+#: model:ir.ui.menu,name:maintenance.menu_maintenance_title
+msgid "Maintenance"
+msgstr "Safety Master"
+
+#. module: base
+#: model:ir.model.fields,field_description:base.field_res_partner__ref
+#: model_terms:ir.ui.view,arch_db:base.view_partner_form
+msgid "Reference"
+msgstr "Kundennummer"
+
+#. module: maintenance
+#: model:ir.model.fields,field_description:maintenance.field_maintenance_request__category_id
+#: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_request_view_search
+#: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_view_search
+msgid "Category"
+msgstr "Inventarkategorie"
+
+#. module: web_map
+#. openerp-web
+#: code:addons/web_map/static/src/xml/templates.xml:0
+#, python-format
+msgid "View in Google Maps"
+msgstr "In Google Maps ansehen"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/fields/signature.js:0
+#, python-format
+msgid "SIGNATURE"
+msgstr "Unterschrift"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "Equipment System"
+msgstr "Servicestamm"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_equipment
+msgid "days"
+msgstr "Tage"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "August"
+msgstr "August"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "November"
+msgstr "November"
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Equipment : "
+msgstr "Inventar: "
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Created on : "
+msgstr "Anfragedatum: "
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Created By : "
+msgstr "Angefragt von: "
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Customer : "
+msgstr "Kunde: "
+
+#. module: wepelo_equipment
+#: code:addons/wepelo_equipment/controllers/portal.py:0
+#, python-format
+msgid "Assigned to : "
+msgstr "Zugewiesen an: "
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_mail_activity_edit_wizard__user_id
+msgid "Assigned To"
+msgstr "Zugewiesen an"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+msgid "Assigned Tasks"
+msgstr "Zugewiesene Aufgaben"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_mail_activity_search_view
+msgid "Late and Today Activities"
+msgstr "Späte und heutige Aktivitäten"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_layout
+msgid "<b> Print </b>"
+msgstr "<b> Drucken </b>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "You have to select protocols"
+msgstr "Sie müssen Protokolle auswählen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_protocol_maintenance
+msgid "<span class=\"ml50\">Type:</span>"
+msgstr "<span class=\"ml50\">Typ:</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "<span>Maintenance request</span>"
+msgstr "<span>Reparatur</span>"
+
+
+#. module: wepelo_equipment
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_equipment_manufacturer_action
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_equipment_manufacturer
+msgid "Manufacturers"
+msgstr "Herstellerstamm"
+
+#. module: wepelo_equipment
+#: model:ir.ui.menu,name:wepelo_equipment.menu_wepelo_equipment_vendor
+#: model:ir.actions.act_window,name:wepelo_equipment.wepelo_equipment_vendor_action
+msgid "Vendors"
+msgstr "Lieferantenstamm"
+
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__weight
+msgid "Weight in kg"
+msgstr "Gewicht in kg"
+
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_request__depth
+msgid "Depth in cm"
+msgstr "Tiefe in cm"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.hr_equipment_request_view_form_inherit_wepelo
+msgid "Package Information"
+msgstr "Paketinformationen"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__show_user_tab_eichung
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__show_user_tab_eichung
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment_category__show_user_tab_eichung
+msgid "Show User Tab Eichung"
+msgstr "Reiter Eichung einblenden
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_eichnachweis_protocol
+msgid "<strong>Scheduled Date: </strong>"
+msgstr "<strong>Eichdatum: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_eichnachweis_protocol
+msgid "<strong>Serial No: </strong>"
+msgstr "<strong>Seriennummer: </strong>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.report_equipment_eichnachweis_protocol
+msgid "<strong>Contractor: </strong>"
+msgstr "<strong>Bearbeiter: </strong>"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_protocol__is_downloaded
+msgid "Downloaded"
+msgstr "Heruntergeladen"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocols
+msgid "<strong>Downloaded</strong>"
+msgstr "<strong>Heruntergeladen</strong>"
+
+#. module: wepelo_equipment
+#: model:ir.model.fields,field_description:wepelo_equipment.field_equipment_history__attachment_ids
+#: model:ir.model.fields,field_description:wepelo_equipment.field_maintenance_equipment__attachment_ids
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.maintenance_equipment_view_protocol_buttons
+msgid "Attachments"
+msgstr "Dateianhänge"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid ""
+"<span class=\"fa fa-file-text-o\" role=\"img\" aria-label=\"Betriebssicherheitsprüfung Protocol Report (PDF)\" title=\"Protocol Maintenance Report (PDF)\"/>\n"
+"                                    <span>Betriebssicherheitsprüfung Protocol</span>"
+msgstr ""
+"<span class=\"fa fa-file-text-o\" role=\"img\" aria-label=\"Betriebssicherheitsprüfung Protocol Report (PDF)\" title=\"Protocol Maintenance Report (PDF)\"/>\n"
+"                                    <span>Protokoll Betriebssicherheitsprüfung</span>"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+msgid "Betriebssicherheitsprüfung Protocol"
+msgstr "Protokoll Betriebssicherheitsprüfung"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.wepelo_equipment_protocol_view_form
+msgid "Stückprüfung Protocol"
+msgstr "Protokoll Stückprüfung"
+
+#. module: wepelo_equipment
+#: model_terms:ir.ui.view,arch_db:wepelo_equipment.portal_my_protocol
+msgid ""
+"<span class=\"fa fa-file-text-o\" role=\"img\" aria-label=\"Stückprüfung Protocol Report (PDF)\" title=\"Protocol Maintenance Report (PDF)\"/>\n"
+"                                    <span>Stückprüfung Protocol</span>"
+msgstr ""
+"<span class=\"fa fa-file-text-o\" role=\"img\" aria-label=\"Stückprüfung Protocol Report (PDF)\" title=\"Protocol Maintenance Report (PDF)\"/>\n"
+"                                    <span>Protokoll Stückprüfung</span>"

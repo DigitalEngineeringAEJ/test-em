@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_equipment_protocol_rep">
+       <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="o">
+         <t t-call="web.external_layout">
+            <div class="page">
+               <div class="col-12">
+                <hr>
+               </hr>
+              <h1 style="color:blue;">REPARATURBERICHT</h1>
+               </div>
+               <table class="table table-borderless table-sm mt16 ml16">
+			            <tr>
+                     <td style="width:300px;">
+                        <strong>Kunde: </strong>
+                     </td>
+                     <td>
+                        <p t-field="o.equipment_id.customer_id"/>
+                        <p t-field="o.equipment_id.customer_id.street"/>
+                        <p t-field="o.equipment_id.customer_id.city"/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>Bearbeiter: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.user_id"/>
+                     </td>
+                  </tr>
+                <tr>
+                     <td style="width:300px;">
+                        <strong>Eingang: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.request_date" t-options='{"format": "dd.MM.yyyy"}'/>
+                     </td>
+                  </tr>
+                 <tr>
+                     <td style="width:300px;">
+                        <strong>Fertig: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.schedule_date" t-options='{"format": "dd.MM.yyyy"}'/>
+                     </td>
+                  </tr>
+                 <!-- <tr>
+                     <td style="width:300px;">
+                        <strong>Fertig: </strong>
+                     </td>
+                     <td>
+                        <span id="datetime"></span>
+                        <script>
+                           var dt = new Date();
+                           document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear());
+                        </script>
+                     </td> 
+                  </tr> -->
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>Seriennummer: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.equipment_id.serial_no"/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>Typ: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.equipment_id.category_id"/>
+                     </td>
+                  </tr>
+               </table>
+               <hr>
+               </hr>
+               <div class="col-12">
+              <h2 style="color:blue;">Beschreibung:</h2>
+              </div>
+               <table class="table table-borderless table-sm mt16 ml16">
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>angegebner Fehler: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.x_angegebener_fehler"/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>durch PI/Region: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.x_durchPI"/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>Befund durch Bearbeiter: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.user_id"/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>Reparatur: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.x_reparatur"/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>liegt ein Garantie fall vor: </strong>
+                     </td>
+                     <td>
+                        <t t-if="o.x_garantie == True">
+                           <strong>Ja</strong>
+                        </t>
+                        <t t-else="">
+                           <strong>Nein</strong>
+                        </t>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td style="width:300px;">
+                        <strong>sonstige Bemerkungen: </strong>
+                     </td>
+                     <td>
+                        <span t-field="o.description"/>
+                     </td>
+                  </tr>
+               </table>
+               <hr>
+               </hr>
+            </div>
+                <td t-if="o.signature" style="{ vertical-align: bottom; }">
+                  <img t-att-src="image_data_uri(o.signature)" style="width:300px; alt=sign"/>
+                    <div>
+                      <strong><span class="text-center">Unterschrift Bearbeiter:</span></strong>
+                    </div>
+                </td>
+         </t>
+      </t>
+   </t>
+
+    </template>
+
+    <record id="wepelo_equipment_protocol_rep" model="ir.actions.report">
+            <field name="name">Equipment Protocol Repair</field>
+            <field name="model">equipment.protocol</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">wepelo_equipment.report_equipment_protocol_rep</field>
+            <field name="report_file">wepelo_equipment.report_equipment_protocol_rep</field>
+            <field name="print_report_name">((object.name or '').replace('/','')+'.pdf')</field>
+            <field name="binding_model_id" ref="model_equipment_protocol"/>
+            <field name="binding_type">report</field>
+        </record>
+</odoo>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_equipment_protocol_tore">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <style>
+                        .checkbox-xl .custom-control-label::before,
+                        .checkbox-xl .custom-control-label::after {
+                        top: 0.8rem;
+                        width: 1.10rem;
+                        height: 1.10rem;
+                        }
+
+                        .checkbox-xl .custom-control-label {
+                        padding-top: 0.7rem;
+                        padding-left: 2%;
+                        font-size: 14px;
+                        }
+                    </style>
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h4>
+                            Prüfungsbefund
+                        </h4>
+                        <strong style="font-size:14px">Funktion und Sichtprüfung nach VGB 14</strong>
+                        <div class="col-12" style="padding-left:1px;margin-top:15px;margin-bottom:15px;">
+                            <strong style="font-size:16px;">Firma, die das Tor betreibt:</strong>
+                            <span style="font-size:16px;">
+                                <span t-field="o.customer_id.name"/><t t-if="o.customer_id.street">, <t t-esc="o.customer_id.street"/></t><t t-if="o.customer_id.street2 or o.customer_id.zip">, <t t-esc="o.customer_id.street2"/> <t t-esc="o.customer_id.zip"/></t><t t-if="o.customer_id.city">, <t t-esc="o.customer_id.city"/></t>
+                            </span>
+                        </div>
+                        <table class="table table-borderless table-sm">
+                            <tr>
+                                <td style="width:150px;">
+                                    <strong>Datum der Prüfung:</strong>
+                                    <span t-field="o.mail_activity_id.schedule_date"
+                                          t-options='{"format": "dd.MM.yyyy"}'/>
+                                </td>
+                                <td style="width:150px;">
+                                    <strong>Hersteller:
+                                        <span t-field="o.equipment_id.manufacturer_id"/>
+                                    </strong>
+                                </td>
+                                <td style="width:150px;">
+                                    <strong>Seriennummer:
+                                        <span t-field="o.serial_no"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-borderless table-sm mt16">
+                            <tr>
+                                <td colspan="2">
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_exam_regular">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_regular" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_regular">Regelmäßige
+                                                Prüfung
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_exam_regular">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_regular"/>
+                                            <label class="custom-control-label" for="checkbox_regular">Regelmäßige
+                                                Prüfung
+                                            </label>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_extraordinary">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_extraordinary" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_extraordinary">
+                                                Außerordentliche Prüfung
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_extraordinary">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_extraordinary"/>
+                                            <label class="custom-control-label" for="checkbox_extraordinary">
+                                                Außerordentliche Prüfung
+                                            </label>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_exam_tore_review">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_review" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_review">Nachprüfung
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_exam_tore_review">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_review"/>
+                                            <label class="custom-control-label" for="checkbox_review">Nachprüfung
+                                            </label>
+                                        </t>
+                                    </div>
+                                </td>
+                                <td colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td colspan="2">
+                                    <div class="custom-control custom-checkbox checkbox-xl">
+
+                                        <t t-if="o.mail_activity_id.result_exam_no_defects">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_no_defects" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_no_defects"
+                                                   style="margin-top:10px">Es wurden keine Mängel festgestellt
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.result_exam_no_defects">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_no_defects"/>
+                                            <label class="custom-control-label" for="checkbox_no_defects"
+                                                   style="margin-top:1%">Es wurden keine Mängel festgestellt
+                                            </label>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl">
+                                        <t t-if="o.mail_activity_id.result_exam_defects">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_defects" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_defects">Es wurden
+                                                folgende Mängel festgestellt:
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.result_exam_defects">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_defects"/>
+                                            <label class="custom-control-label" for="checkbox_defects">Es wurden
+                                                folgende Mängel festgestellt:
+                                            </label>
+                                        </t>
+                                    </div>
+                                </td>
+                            </tr>
+                            <t t-if="o.mail_activity_id.result_exam_defects">
+                                <tr>
+                                    <td colspan="4">
+                                        <span t-field="o.mail_activity_id.note_tore"/>
+                                    </td>
+                                </tr>
+                            </t>
+                                <tr>
+                                    <td colspan="4">
+                                        <strong>Ausstehende Teilprüfungen:</strong> <span t-field="o.mail_activity_id.partial_exams"/>
+                                    </td>
+                                </tr>
+                                <tr style="border: 1px solid black;">
+                                   <td colspan="2" style="text-align:center;border-top: 1px solid black;">
+                                      <p style="text-align:center;padding:10px;padding-top:15px;">
+                                          Funktions- u. Sichtprüfung
+                                          <br></br>
+                                            nach BGG <b>950</b>
+                                           <br></br>
+                                            mit / ohne Wartung
+                                      </p>
+                                   </td>
+                                        <td colspan="2" style="border-right: 1px solid black;border-top: 1px solid black;">
+                                       <div style="border: 1px solid black;padding:10px;padding-right:15px;">
+                                         <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.operation_no_defects">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_no_defects" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_no_defects">Weiterbetrieb bedenkenlos, keine Mängel feststellbar
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.operation_no_defects">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_no_defects"/>
+                                            <label class="custom-control-label" for="checkbox_no_defects">Weiterbetrieb bedenkenlos, keine Mängel feststellbar
+                                            </label>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.operation_review">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_review" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_review">
+                                               Weiterbetrieb ist bedenklich, Nachprüfung erforderlich
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.operation_review">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_review"/>
+                                            <label class="custom-control-label" for="checkbox_review">
+                                                Weiterbetrieb ist bedenklich, Nachprüfung erforderlich
+                                            </label>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.operation_defects_remedied">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_defects_remedied" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_defects_remedied">Weiterbetrieb möglich, Mängel müssen behoben werden
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.operation_defects_remedied">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_defects_remedied"/>
+                                            <label class="custom-control-label" for="checkbox_defects_remedied">Weiterbetrieb möglich, Mängel müssen behoben werden
+                                            </label>
+                                        </t>
+                                    </div>
+                                      </div>
+                                   </td>
+
+                                </tr>
+                        </table>
+                        <p>
+                            <div style="border-bottom:1px solid black;margin-bottom:5px;">
+                                <strong>Bestätigung der Prüfung</strong>
+                            </div>
+                            Sicherheitsprüfung durchgeführt am:
+                            <span t-field="o.mail_activity_id.schedule_date" t-options='{"format": "dd.MM.yyyy"}'/>
+                            <br></br>
+                            Durchgeführt durch Firma:
+                            <span t-field="o.create_uid.company_id"/>
+                            <br></br>
+                            Anschrift: <t t-if="o.create_uid.company_id.street"><span t-field="o.create_uid.company_id.street"/></t><t t-if="o.create_uid.company_id.zip">, <span t-field="o.create_uid.company_id.zip"/></t><t t-if="o.customer_id.city">, <span t-field="o.customer_id.city"/>
+                                </t>
+                            <br></br>
+                            Name Sachkundiger:
+                            <t t-esc="o.equipment_id.technician_user_id.name"/>
+                        </p>
+
+
+                        <table class="table table-borderless table-sm mt16">
+                            <tr>
+                                <td style="width:200px;">
+                                    <strong>Ergebnis der Prüfung:</strong>
+                                </td>
+                                <td colspan="3">
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_exam_result_review">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_review" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_is_review">Weiterbetrieb
+                                                bedenklich, Nachprüfung erforderlich
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_exam_result_review">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_review"/>
+                                            <label class="custom-control-label" for="checkbox_is_review">Weiterbetrieb
+                                                bedenklich, Nachprüfung erforderlich
+                                            </label>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_result_continuation_operation">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_continuation_operation" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_continuation_operation">
+                                                Weiterbetrieb möglich, Mängel beheben
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_result_continuation_operation">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_continuation_operation"/>
+                                            <label class="custom-control-label" for="checkbox_continuation_operation">
+                                                Weiterbetrieb möglich, Mängel beheben
+                                            </label>
+                                        </t>
+                                    </div>
+                                    <div class="custom-control custom-checkbox checkbox-xl col-12">
+                                        <t t-if="o.mail_activity_id.is_result_exam_no_defect">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_no_defect" checked="checked"/>
+
+                                            <label class="custom-control-label" for="checkbox_is_no_defect">Keine
+                                                Mängel, Weiterbetrieb bedenkenlos
+                                            </label>
+                                        </t>
+                                        <t t-if="not o.mail_activity_id.is_result_exam_no_defect">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="checkbox_is_no_defect"/>
+                                            <label class="custom-control-label" for="checkbox_is_no_defect">Keine
+                                                Mängel, Weiterbetrieb bedenkenlos
+                                            </label>
+                                        </t>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-borderless table-sm mt32">
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">
+                                        <img t-if="o.signature" t-att-src="image_data_uri(o.signature)"
+                                             style="max-height:4cm; max-width:9cm;" alt="sign"/>
+                                        <div class="ml32 mt16">
+                                            <p t-if="not o.signature" style="border-top:1px solid black; width:300px;"/>
+                                        </div>
+                                        <div>
+                                            <strong class="text-center">
+                                                Unterschrift Sachkundiger
+                                            </strong>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div t-if="o.signature" style="min-height:70px;"></div>
+                                        <div class="ml32 mt16">
+                                            <p style="border-top:1px solid grey; width:300px;"/>
+                                        </div>
+                                        <div style="margin-top:40px;">
+                                            <strong class="text-center">
+                                               Unterschrift Betreiber
+                                            </strong>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <report
+            id="wepelo_equipment_tore_protocol"
+            model="equipment.protocol"
+            string="Tore"
+            report_type="qweb-pdf"
+            name="wepelo_equipment.report_equipment_protocol_tore"
+            file="wepelo_equipment.report_equipment_protocol_tore"
+            groups="base.group_system,base.group_user"
+            print_report_name="(object._get_report_filename())"
+            menu="False"
+    />
+
+</odoo>

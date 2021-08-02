@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+     <template id="wepelo_assets_frontend" name="account assets" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/wepelo_equipment/static/src/libs/scss/simple-calendar.scss"/>
+            <link rel="stylesheet" href="/wepelo_equipment/static/src/css/custom.css"/>
+            <link rel="stylesheet" href="/wepelo_equipment/static/src/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css"/>
+            <script type="text/javascript" src="/wepelo_equipment/static/src/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" src="/wepelo_equipment/static/src/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+            <script type="text/javascript" src="/wepelo_equipment/static/src/js/dataTables.select.min.js"></script>
+            <script type="text/javascript" src="/wepelo_equipment/static/src/libs/js/jquery.simple-calendar.js"></script>
+            <script type="text/javascript" src="/wepelo_equipment/static/src/libs/js/jquery.combostars.js"></script>
+            <script type="text/javascript" src="/wepelo_equipment/static/src/js/custom.js"></script>
+             <link rel="stylesheet" href="/wepelo_equipment/static/src/css/select.dataTables.min.css"/>
+        </xpath>
+    </template>
+     <template id="wepelo_assets_backend" name="account assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/wepelo_equipment/static/src/js/list/list_editable_renderer.js"></script>
+        </xpath>
+    </template>
+
+     <template id="wepelo_qunit_suite" name="account assets" inherit_id="web.qunit_suite_tests">
+         <xpath expr="//script[last()]" position="replace">
+         <script type="text/javascript" src="/wepelo_equipment/static/tests/views/list_tests.js"></script>
+         </xpath>
+    </template>
+
+</odoo>

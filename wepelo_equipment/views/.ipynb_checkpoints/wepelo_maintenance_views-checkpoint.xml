@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_equipment_view_tree_inherit_wepelo" model="ir.ui.view">
+        <field name="name">equipment.tree.inherit.wepelo</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="serial_no" position="before">
+                <field name="inventory_number"/>
+            </field>
+            <field name="serial_no" position="after">
+                <field name="equipment_service_id" optional="hide"/>
+                <field name="test_equipment_device_id" optional="hide"/>
+                <field name="manufacturer_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+<!-- Test --> 
+   <!-- Anpassung der Ansicht Zeile 18 bis 70 </record> --> 
+    <record id="hr_equipment_view_form_inherit_wepelo" model="ir.ui.view">
+        <field name="name">equipment.form.inherit.wepelo</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='name']" position="attributes">
+                <attribute name='string'>Customer Internal Designation</attribute>
+            </xpath>
+            <field name="partner_ref" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <field name="partner_id" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <field name="warranty_date" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <field name="cost" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <field name="model" position="before">
+                <field name="manufacturer_id"  context="{'default_type': 'manufacturer'}"/>
+            </field>
+            <field name="serial_no" position="after">
+                <field name="partner_id" position="after" context="{'default_type': 'vendor'}"/>
+                <field name="qr_code" widget='image' class="oe_avatar"/>
+            </field>
+            <field name="owner_user_id" position="attributes">
+                <attribute name="domain">[('id', 'in', owner_user_ids)]</attribute>
+            </field>
+            <field name="owner_user_id" position="before">
+                <field name="customer_id"/>
+            </field>
+            <field name="effective_date" position="after">
+                <field name="warranty_date"/>
+                <field name="inventory_number"/>
+                <field name="equipment_service_id"/>
+                <field name="test_equipment_device_id"/>
+                <field name="equipment_type_id"/>
+                <field name="show_user_tab_eichung" invisible="1"/>
+                <field name="owner_user_ids" invisible="1"/>
+            </field>
+            <xpath expr="//notebook//page[last()]" position="after">
+                <page name="contact_details" string="Address/Contact Details">
+                    <group>
+                        <group>
+                            <field name="street"/>
+                            <field name="house_no"/>
+                            <field name="zip"/>
+                            <field name="city"/>
+                        </group>
+                        <group>
+                            <field name="contact_person"/>
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//notebook//page[3]" position="after">
+                <page name="calibration" string="Eichung" attrs="{'invisible':[('show_user_tab_eichung', '=', False)]}">
+                    <group>
+                        <group>
+                            <field name="rechnungsnr_eichung"/>
+                            <field name="eichamt"/>
+                        </group>
+                        <group>
+                            <field name="letzte_eichung"/>
+                            <field name="gueltigkeit_eichung" invisible="1"/>
+                            <field name="naechste_eichung"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_equipment_request_view_tree" model="ir.ui.view">
+        <field name="name">equipment.request.tree</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_request_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="request_date" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="owner_user_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="user_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="category_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="stage_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="company_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="stage_id" position="after">
+                <field name="equipment_id" optional="hide"/>
+                <field name="maintenance_type" optional="hide"/>
+                <field name="maintenance_team_id" optional="hide"/>
+                <field name="schedule_date" optional="hide"/>
+                <field name="duration" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="maintenance.hr_equipment_action" model="ir.actions.act_window">
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="maintenance.hr_equipment_view_tree"/>  
+    </record>
+
+    <!--Customer Views-->
+    <record id="wepelo_equipment_customer_view_tree" model="ir.ui.view">
+        <field name="name">wepelo.equipment.customer.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="display_name" position="after">
+                <field name="additive" optional="show"/>
+            </field>
+            <field name="phone" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+            <field name="email" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+            <field name="city" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="wepelo_equipment_customer_view_form" model="ir.ui.view">
+        <field name="name">wepelo.equipment.customer.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="country_id" position="before">
+                <field name="additive" placeholder="Additive"/>
+            </field>
+            <field name="function" position="after">
+                <field name="contact_person"/>
+            </field>
+            <field name="industry_id" position="attributes">
+                <attribute name="options"></attribute>
+            </field>
+            <field name="category_id" position="attributes">
+                <attribute name="options">{'color_field': 'color'}</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!--Test Equipment Views-->
+    <record id="wepelo_equipment_test_view_tree" model="ir.ui.view">
+        <field name="name">wepelo.equipment.test.tree</field>
+        <field name="model">equipment.test</field>
+        <field name="arch" type="xml">
+            <tree string="Test Equipment">
+                <field name="display_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wepelo_equipment_test_view_form" model="ir.ui.view">
+        <field name="name">wepelo.equipment.test.form</field>
+        <field name="model">equipment.test</field>
+        <field name="arch" type="xml">
+            <form string="Test Equipment">
+                <sheet>
+                    <div>
+                        <h1>
+                            <field name='display_name'/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="equipment_test_type"/>
+                        </group>
+                        <group>
+                            <field name="cycle_duration"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Service strain Views-->
+    <record id="wepelo_equipment_service_view_tree" model="ir.ui.view">
+        <field name="name">wepelo.equipment.service.tree</field>
+        <field name="model">equipment.service</field>
+        <field name="arch" type="xml">
+            <tree string="Service strain">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wepelo_equipment_service_view_form" model="ir.ui.view">
+        <field name="name">wepelo.equipment.service.form</field>
+        <field name="model">equipment.service</field>
+        <field name="arch" type="xml">
+            <form string="Service strain">
+                <sheet>
+                    <div>
+                        <h1>
+                            <field name='name'/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="test_equipment_ids" widget="many2many_checkboxes"/>
+                        </group>
+                        <group attrs="{'invisible': [('is_maintenance', '=', False)]}">
+                            <field name="is_maintenance" invisible="1"/>
+                            <field name="exhaust_measuring_device" widget="selection"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Equipment Types Views-->
+    <record id="wepelo_equipment_types_view_tree" model="ir.ui.view">
+        <field name="name">wepelo.equipment.types.tree</field>
+        <field name="model">equipment.types</field>
+        <field name="arch" type="xml">
+            <tree string="Types">
+                <field name="name"/>
+                <field name="types_sn"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wepelo_equipment_types_view_form" model="ir.ui.view">
+        <field name="name">wepelo.equipment.types.form</field>
+        <field name="model">equipment.types</field>
+        <field name="arch" type="xml">
+            <form string="Types">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="types_sn" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!--Test Equipment History-->
+    <record id="wepelo_equipment_history_view_tree" model="ir.ui.view">
+        <field name="name">wepelo.equipment.history.tree</field>
+        <field name="model">equipment.history</field>
+        <field name="arch" type="xml">
+            <tree string="History">
+                <field name="current_date"/>
+                <field name="topic"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wepelo_equipment_history_view_form" model="ir.ui.view">
+        <field name="name">wepelo.equipment.history.form</field>
+        <field name="model">equipment.history</field>
+        <field name="arch" type="xml">
+            <form string="History">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="current_date" required="0"/>
+                            <field name="topic"/>
+                            <field name="name"/>
+                            <field name="request_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Test Equipment Views-->
+    <record id="wepelo_test_equipment_device_view_tree" model="ir.ui.view">
+        <field name="name">wepelo.test.equipment.types.tree</field>
+        <field name="model">test.equipment.device</field>
+        <field name="arch" type="xml">
+            <tree string="Types">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wepelo_test_equipment_device_view_form" model="ir.ui.view">
+        <field name="name">wepelo.test.equipment.device.form</field>
+        <field name="model">test.equipment.device</field>
+        <field name="arch" type="xml">
+            <form string="Types">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="x_device_typ"/>
+                            <field name="sn"/>
+                        </group>
+                        <group string="Data test gas" attrs="{'invisible':[('x_device_typ', '!=', 'testgas')]}">
+                            <field name="x_zertnum"/>
+                            <field name="x_flaschnum"/>
+                            <field name="x_gasco"/>
+                            <field name="x_gasco2"/>
+                            <field name="x_gasc3"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="wepelo_res_partner_search_view" model="ir.ui.view">
+        <field name="name">wepelo.res.partner.search</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search string="Partner">
+                <filter name="manufacturer" string="Manufacturer" domain="[('type', '=', 'manufacturer')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Neue Search View für Lieferanten-->
+    <record id="wepelo_res_vendor_search_view" model="ir.ui.view">
+        <field name="name">wepelo.res.partner.search</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search string="Partner">
+                <filter name="vendor" string="Vendor" domain="[('type', '=', 'vendor')]"/>
+            </search>
+        </field>
+    </record>
+    
+<!-- Neue Search View Customer --> 
+     <record id="wepelo_res_customer_search_view" model="ir.ui.view">
+        <field name="name">wepelo.res.partner.search</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+        <search string="Partner">
+                <filter name="customer" string="Customer" domain="[('type', '!=', 'manufacturer'),('type', '!=', 'vendor')]"/>
+                <field string="Customer" name="name" filter_domain="[
+                    ('name', 'ilike', self)]"/>
+                <field string="Kundennummer" name="ref" filter_domain="[
+                    ('ref', 'ilike', self)]"/>
+            </search>  
+        </field>
+    </record>
+    
+    <record id="hr_equipment_view_search_wepelo" model="ir.ui.view">
+        <field name="name">equipment.search</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_search"/>
+        <field name="arch" type="xml">
+            <field name="owner_user_id" position="after">
+                <field name="manufacturer_id"/>
+                <field name="customer_id"/>
+            </field>
+            <filter name="vendor" position="after">
+                <filter string='Manufacturer' name="manufacturer" domain="[]" context="{'group_by': 'manufacturer_id'}"/>
+                <filter string='Customer' name="customer" domain="[]" context="{'group_by': 'customer_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="hr_equipment_action_from_customer_form" model="ir.actions.act_window">
+        <field name="name">Equipments</field>
+        <field name="res_model">maintenance.equipment</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="maintenance.hr_equipment_view_kanban"/>
+        <field name="context">{
+            'search_default_customer_id': [active_id],
+            'default_customer_id': active_id,
+        }</field>
+    </record>
+
+    <record id="res_partner_view_equipment_buttons" model="ir.ui.view">
+        <field name="name">res.partner.view.equipment.buttons</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <div class="oe_button_box" name="button_box">
+                <button name="%(hr_equipment_action_from_customer_form)d"
+                    class="oe_stat_button"
+                    icon="fa-cubes"
+                    type="action">
+                    <field string="Equipment" name="equipment_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+   <!--Master Data Customer Action -->
+    <record id="wepelo_equipment_customer_action" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_equipment_customer_view_tree"/>
+        <field name="search_view_id" ref="wepelo_res_customer_search_view"/>
+        <field name="context">{'search_default_customer': 1, 'default_is_company': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new Customer
+            </p>
+        </field>
+    </record>
+
+    <!--Master Data Vendor Action -->
+    <record id="wepelo_equipment_vendor_action" model="ir.actions.act_window">
+        <field name="name">Vendors</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_equipment_customer_view_tree"/>
+        <field name="search_view_id" ref="wepelo_res_vendor_search_view"/>
+        <field name="context">{'search_default_vendor': 1,
+            'default_type': 'vendor', 'default_is_company': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new Vendor
+            </p>
+        </field>
+    </record>
+
+    <!--Master Data Manufacturer Action -->
+    <record id="wepelo_equipment_manufacturer_action" model="ir.actions.act_window">
+        <field name="name">Manufacturers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_equipment_customer_view_tree"/>
+        <field name="search_view_id" ref="wepelo_res_partner_search_view"/>
+        <field name="context">{'search_default_manufacturer': 1,
+            'default_type': 'manufacturer', 'default_is_company': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new Manufacturer
+            </p>
+        </field>
+    </record>
+
+    <!--Master Data Service strain Action -->
+    <record id="wepelo_equipment_service_action" model="ir.actions.act_window">
+        <field name="name">Service strain</field>
+        <field name="res_model">equipment.service</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_equipment_service_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a Service strain
+            </p>
+        </field>
+    </record>
+
+    <!--Master Data Test Equipment Action -->
+    <record id="wepelo_equipment_test_action" model="ir.actions.act_window">
+        <field name="name">Test Equipment</field>
+        <field name="res_model">equipment.test</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_equipment_test_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a Test Equipment
+            </p>
+        </field>
+    </record>
+
+
+    <!--Master Data Equipment Types Action -->
+    <record id="wepelo_equipment_types_action" model="ir.actions.act_window">
+        <field name="name">Types</field>
+        <field name="res_model">equipment.types</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_equipment_types_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new Equipment Types
+            </p>
+        </field>
+    </record>
+
+    <!--Master Data Test Equipment Device Action -->
+    <record id="wepelo_test_equipment_device_action" model="ir.actions.act_window">
+        <field name="name">Test Equipment Device</field>
+        <field name="res_model">test.equipment.device</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_test_equipment_device_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new Test Equipment
+            </p>
+        </field>
+    </record>
+    
+    <!--View für Historie abbilden 
+    wepelo_equipment.wepelo_equipment_history_view_tree -->
+    <record id="wepelo_wepelo_historie_action" model="ir.actions.act_window">
+        <field name="name">Equipment Historie</field>
+        <field name="res_model">equipment.history</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wepelo_equipment_history_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a Equipment history
+            </p>
+        </field>
+    </record>
+    
+    <record model="ir.ui.menu" id="maintenance.menu_m_dashboard">
+        <field name="action" eval="False">
+        </field>
+    </record>
+    
+    <record id="hr_equipment_delete_page_view_form_inherit_wepelo" model="ir.ui.view">
+      <field name="name">equipment.inherit.delete.wepelo</field>
+      <field name="model">maintenance.equipment</field>
+      <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+      <field name="arch" type="xml">
+      <xpath expr="//notebook//page[3]" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      </field>
+    </record>
+    
+    <record id="hr_equipment_delete_page_desc_view_form_inherit_wepelo" model="ir.ui.view">
+      <field name="name">equipment.inherit.delete.desc.wepelo</field>
+      <field name="model">maintenance.equipment</field>
+      <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+      <field name="arch" type="xml">
+      <xpath expr="//notebook//page[1]" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      </field>
+    </record>
+    
+    <menuitem
+        id="maintenance.menu_maintenance_title"
+        name="Safety Master"
+        web_icon="wepelo_equipment/static/src/img/icon.png"
+        sequence="110"/>
+    
+    <menuitem
+        id="maintenance.menu_m_dashboard"
+        name="Dashboard"
+        parent="maintenance.menu_maintenance_title"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="99"/> 
+
+    <menuitem
+        id="menu_wepelo_master_data"
+        name="Stammdaten"
+        parent="maintenance.menu_maintenance_title"
+        groups="base.group_system,base.group_user"
+        sequence="3"/>
+
+    <menuitem
+        id="menu_wepelo_equipment_customer"
+        name="Kunden"
+        parent="menu_wepelo_master_data"
+        action="wepelo_equipment_customer_action"
+        groups="base.group_system,base.group_user"
+        sequence="1"/>
+
+    <menuitem
+        id="maintenance.menu_maintenance_cat"
+        name="Objekt"
+        parent="menu_wepelo_master_data"
+        action="maintenance.hr_equipment_category_action"
+        sequence="2"/>
+    
+    <menuitem
+        id="maintenance.maintenance_menu_config_activity_type"
+        name="Service"
+        action="maintenance.mail_activity_type_action_config_maintenance"
+        parent="menu_wepelo_master_data"
+        sequence="20"
+        groups="base.group_no_one"/>
+    
+    <menuitem
+        id="maintenance.menu_equipment_form"
+        name="Inventar"
+        parent="maintenance.menu_maintenance_title"
+        action="maintenance.hr_equipment_action"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="2"/>
+
+<!-- Inaktive Menüitems fff -->
+    
+     <menuitem
+        id="menu_wepelo_equipment_test"
+        name="Test Equipment"
+        parent="menu_wepelo_master_data"
+        action="wepelo_equipment_test_action"
+        groups="base.group_system,base.group_user"
+        sequence="3"
+        active="False"/>
+
+    <menuitem
+        id="menu_wepelo_equipment_types"
+        name="Types"
+        parent="menu_wepelo_master_data"
+        action="wepelo_equipment_types_action"
+        groups="base.group_system,base.group_user"
+        sequence="4"
+        active="False"/>
+
+    <menuitem
+        id="menu_wepelo_test_equipment_device"
+        name="Test Equipment Device"
+        parent="menu_wepelo_master_data"
+        action="wepelo_test_equipment_device_action"
+        groups="base.group_system,base.group_user"
+        sequence="5"
+        active="False"/>
+
+    <menuitem
+        id="menu_wepelo_equipment_manufacturer"
+        name="Manufacturers"
+        parent="menu_wepelo_master_data"
+        action="wepelo_equipment_manufacturer_action"
+        groups="base.group_system,base.group_user"
+        sequence="6"
+        active="False"/>
+
+    <menuitem
+        id="menu_wepelo_equipment_vendor"
+        name="Vendors"
+        parent="menu_wepelo_master_data"
+        action="wepelo_equipment_vendor_action"
+        groups="base.group_system,base.group_user"
+        sequence="6"
+        active="False"/>
+    
+     <menuitem
+        id="maintenance.menu_maintenance_configuration"
+        name="Configuration"
+        parent="maintenance.menu_maintenance_title"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="100"
+        active="False"/>
+
+    <menuitem
+        id="maintenance.menu_maintenance_teams"
+        name="Maintenance Teams"
+        parent="maintenance.menu_maintenance_configuration"
+        action="maintenance.maintenance_team_action_settings"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="1"
+        active="False"/>
+
+    <menuitem
+        id="maintenance.menu_maintenance_cat"
+        name="Objekt"
+        parent="menu_wepelo_master_data"
+        action="maintenance.hr_equipment_category_action"
+        sequence="2"/>
+
+    <menuitem
+        id="maintenance.menu_maintenance_stage_configuration"
+        name="Maintenance Stages"
+        parent="maintenance.menu_maintenance_configuration"
+        action="maintenance.hr_equipment_stage_action"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="3"
+        active="False"/>
+    
+     <menuitem
+        id="maintenance.maintenance_reporting"
+        name="Reporting"
+        parent="maintenance.menu_maintenance_title"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="5"
+        active="False"/>
+    
+    <menuitem
+        id="maintenance.menu_m_request"
+        name="Repairs"
+        parent="maintenance.menu_maintenance_title"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="4"
+        active="False"/>
+    
+    <menuitem
+        id="menu_wepelo_historie"
+        name="History"
+        parent="maintenance.menu_maintenance_title"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        action="wepelo_wepelo_historie_action"
+        sequence="9"
+        active="False"/>
+    
+    <menuitem
+        id="menu_wepelo_equipment_service"
+        name="Service strain"
+        parent="menu_wepelo_master_data"
+        action="wepelo_equipment_service_action"
+        groups="base.group_system,base.group_user"
+        sequence="2"
+        active="False"/>
+
+</odoo>
